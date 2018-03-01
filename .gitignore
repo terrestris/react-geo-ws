@@ -1,0 +1,6 @@
+# Dependency directories
+node_modules
+_book
+
+# Optional npm cache directory
+.npm
