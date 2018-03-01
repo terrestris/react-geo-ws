@@ -1,0 +1,37 @@
+{
+  "name": "react-geo-ws",
+  "version": "1.0.0",
+  "description": "The materials for the react-geo workshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "mkdir -p ./_book && npm run doc:serve",
+    "clean": "rm -rf _book build",
+    "doc:help": "gitbook help",
+    "doc:serve": "gitbook serve ./",
+    "doc:build": "gitbook build ./ build/react-geo-ws",
+    "doc:epub": "gitbook epub ./ build/react-geo-ws.epub",
+    "doc:pdf": "gitbook pdf ./ build/react-geo-ws.pdf",
+    "postinstall": "gitbook install ./",
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/react-geo-ws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrestris/react-geo-ws.git"
+  },
+  "keywords": [
+    "workshop",
+    "react",
+    "react-geo",
+    "openlayers"
+  ],
+  "author": "terrestris GmbH & Co. KG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terrestris/react-geo-ws/issues"
+  },
+  "homepage": "https://github.com/terrestris/react-geo-ws#readme",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "svgexport": "^0.3.2"
+  }
+}

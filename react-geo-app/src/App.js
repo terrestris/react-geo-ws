@@ -14,7 +14,6 @@ import {
   MapComponent,
   NominatimSearch,
   MeasureButton,
-  LayerTree,
   Titlebar
 } from '@terrestris/react-geo';
 
@@ -37,7 +36,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Titlebar className="titlebar" tools={[
+        <Titlebar
+          className="titlebar"
+          tools={[
             <NominatimSearch
               key="search"
               map={map}
@@ -51,13 +52,10 @@ class App extends Component {
             >
               Strecke messen
             </MeasureButton>
-          ]}>
+          ]}
+        >
           react-geo-app
         </Titlebar>
-        <LayerTree
-          filterFunction={l => !l.get('name').startsWith('react-geo')}
-          map={map}
-        />
         <MapComponent
           map={map}
         />

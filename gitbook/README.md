@@ -1,8 +1,7 @@
-React Geo ist eine tolle Bibliothek für Karten mit react und ol und antd
+# Workshop - react-geo - mapping with react
 
+A set of geo related modules. To use in combination with [react](https://github.com/facebook/react), [antd](https://github.com/ant-design/ant-design) and [ol](https://github.com/openlayers/openlayers).
 ![](images/react-geo-logo.svg)
-
-# react-geo - mapping mit React
 
 Herzlich Willkommen beim Workshop **react-geo - mapping mit React** auf der FOSSGIS 2018 in Bonn.
 
@@ -12,7 +11,7 @@ Dieser Workshop wurde für die Verwendung auf der [OSGeo-Live {{ book.osGeoLiveV
 >
 > Der Workshop kann [hier als PDF-Version]({{ book.workshopPdfUrl }}) heruntergeladen werden.
 
-Der Workshop ist aus einer Reihe von Modulen zusammengestellt. In jedem Modul werden Sie eine Reihe von Aufgaben lösen, um ein bestimmtes Ziel zu erreichen. Jedes Modul baut Ihre Wissensbasis iterativ, modular und nukular, übnertstzbar auf.
+Der Workshop ist aus einer Reihe von Modulen zusammengestellt. In jedem Modul werden Sie eine Reihe von Aufgaben lösen, um ein bestimmtes Ziel zu erreichen. Jedes Modul baut Ihre Wissensbasis iterativ auf.
 
 # Autoren
 
