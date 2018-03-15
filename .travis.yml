@@ -16,6 +16,7 @@ before_script:
     python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)"
 script:
   - cd gitbook/
+  - npm i
   - npm run archive
   - cd ../
 after_success:
