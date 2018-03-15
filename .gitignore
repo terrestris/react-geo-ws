@@ -1,8 +1,10 @@
 # Dependency directories
 node_modules
-_book
 
 # Optional npm cache directory
 .npm
 
-react-geo-ws/build
+*.log
+
+gitbook/build
+gitbook/_book
