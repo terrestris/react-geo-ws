@@ -4,3 +4,5 @@ _book
 
 # Optional npm cache directory
 .npm
+
+react-geo-ws/build
