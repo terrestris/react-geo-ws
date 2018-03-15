@@ -12,7 +12,8 @@
     "doc:epub": "gitbook epub ./ build/react-geo-ws.epub",
     "doc:pdf": "gitbook pdf ./ build/react-geo-ws.pdf",
     "postinstall": "gitbook install ./",
-    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/react-geo-ws"
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/react-geo-ws",
+    "archive": "npm run build && cd build && zip -r react-geo-ws.zip react-geo-ws react-geo-ws*.pdf react-geo-ws*.epub"
   },
   "repository": {
     "type": "git",
