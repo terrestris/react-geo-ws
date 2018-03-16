@@ -2,9 +2,9 @@
 
 * [Introduction](./README.md)
 * [Basics](introduction/README.md)
-  * [React](introduction/react.md)
-  * [ES6](introduction/es6.md)
   * [npm](introduction/npm.md)
+  * [ES6](introduction/es6.md)
+  * [React](introduction/react.md)
 * [First steps](first-steps/index.md)
   * [Base React application](first-steps/create-react-app.md)
   * [Development notes](first-steps/webpack-hotreload.md)
