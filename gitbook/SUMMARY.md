@@ -1,23 +1,21 @@
 # Summary
 
-* [Einführung](./README.md)
+* [Introduction](./README.md)
+* [Basics](introduction/README.md)
   * [React](introduction/react.md)
   * [ES6](introduction/es6.md)
   * [npm](introduction/npm.md)
-
-* [Erste Schritte](first-steps/index.md)
-  * [create-react-app](first-steps/create-react-app.md)
-  * [webpack](first-steps/webpack-hotreload.md)
-  * [Basispakete](first-steps/basispakete.md)
-  * [Erste Komponente](first-steps/erste-komponente.md)
-
-* [Kartenapplikation mit react-geo Komponenten](map-integration/index.md)
+* [First steps](first-steps/index.md)
+  * [Base React application](first-steps/create-react-app.md)
+  * [Development notes](first-steps/webpack-hotreload.md)
+  * [Include react-geo dependency](first-steps/basispakete.md)
+  * [Include a react-geo component](first-steps/erste-komponente.md)
+* [A taste of react-geo components](map-integration/index.md)
   * [MapComponent](map-integration/map-component.md)
   * [Titlebar](map-integration/titlebar.md)
   * [NominatimSearch](map-integration/nominatim-search.md)
   * [MeasureButton](map-integration/measure-button.md)
   * [LayerTree](map-integration/layer-tree.md)
-
 * [Higher order components / Provider](higher-order-components/general.md)
   * [MapProvider / `mappify`](higher-order-components/mappify.md)
   * [VisibleComponent / `isVisibleComponent`](higher-order-components/visible-component.md)

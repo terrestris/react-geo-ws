@@ -1,47 +1,41 @@
-# Workshop - react-geo - mapping with react
+<center><img src="images/react-geo-logo.svg" style="width: 250px;"/></center>
 
-A set of geo related modules. To use in combination with [react](https://github.com/facebook/react), [antd](https://github.com/ant-design/ant-design) and [ol](https://github.com/openlayers/openlayers).
-![](images/react-geo-logo.svg)
+# Workshop *{{ book.workshopName }}*
 
-Herzlich Willkommen beim Workshop **react-geo - mapping mit React** auf der FOSSGIS 2018 in Bonn.
-
-Dieser Workshop wurde für die Verwendung auf der [OSGeo-Live {{ book.osGeoLiveVersion }} DVD](https://live.osgeo.org) entwickelt und soll eine elementare Einführung in react, npm und ES6 geben und einige nützliche Komponenten am Beispiel demonstrieren.
+Welcome to the **{{ book.workshopName }}** workshop. This workshop is designed to 
+give you a comprehensive overview of [react-geo](https://github.com/terrestris/react-geo) 
+as a library of geo-related application components available in combination with
+[React](https://github.com/facebook/react), [antd](https://github.com/ant-design/ant-design) 
+and [OpenLayers](https://github.com/openlayers/openlayers).
 
 > **info**
->
-> Der Workshop kann [hier als PDF-Version]({{ book.workshopPdfUrl }}) heruntergeladen werden.
+> If you want to visit this page on your own device or to print the PDF version,
+> you can download the workshop materials [here]({{ book.workshopDownloadUrl }}).
 
-Der Workshop ist aus einer Reihe von Modulen zusammengestellt. In jedem Modul werden Sie eine Reihe von Aufgaben lösen, um ein bestimmtes Ziel zu erreichen. Jedes Modul baut Ihre Wissensbasis iterativ auf.
+## Setup
 
-# Autoren
+The following instructions and exercises assume that you have some requirements
+fulfilled on your local machine. Please check if you have the consequent
+packages installed:
+  * A suitable text editor, e.g. the lightweight [Atom](https://atom.io/) editor.
+  * [NodeJS](https://nodejs.org/en/) in version 8 or higher.
+
+All set? Then, lets' go!
+
+## Overview
+
+This workshop is presented as a set of modules. In each module you will perform 
+tasks designed to achieve a specific goal for that module. Each module builds upon 
+lessons learned in previous modules and is designed to iteratively build up your 
+knowledge base.
+
+* [Basics](./introduction/README.md) - Dive into the basics of EcmaScript 6, React and npm.
+* [First steps](first-steps/index.md) - Learn how to create your own React app and how to include react-geo in it.
+* [A taste of react-geo components](map-integration/index.md) - Extend your application with some react-geo components.
+* [Higher order components / Provider](higher-order-components/general.md) - Have a look at more advanced components.
+
+## Authors
 
 {% for author in book.authors %}
   - {{ author.name }} ([{{ author.mail }}](mailto:{{ author.mail }}))
 {% endfor %}
-
-###### (Die Autoren sind alphabetisch nach ihrem Nachnamen sortiert.)
-
-Die folgenden Module werden in diesem Workshop behandelt:
-
-# [Einführung](./README.md)
-#### [React](introduction/react.md)
-#### [ES6](introduction/es6.md)
-#### [npm](introduction/npm.md)
-
-# [Erste Schritte](first-steps/index.md)
-#### [OSGeo-live](first-steps/osgeo-live.md)
-#### [create-react-app](first-steps/create-react-app.md)
-#### [webpack](first-steps/webpack-hotreload.md)
-#### [Basispakete](first-steps/basispakete.md)
-#### [Erste Komponente](first-steps/erste-komponente.md)
-
-# [Kartenapplikation mit react-geo Komponenten](map-integration/index.md)
-#### [MapComponent](map-integration/map-component.md)
-#### [Titlebar](map-integration/titlebar.md)
-#### [NominatimSearch](map-integration/nominatim-search.md)
-#### [MeasureButton](map-integration/measure-button.md)
-#### [LayerTree](map-integration/layer-tree.md)
-
-# [Higher order components / Provider](higher-order-components/general.md)
-#### [MapProvider / `mappify`](higher-order-components/mappify.md)
-#### [VisibleComponent / `isVisibleComponent`](higher-order-components/visible-component.md)
