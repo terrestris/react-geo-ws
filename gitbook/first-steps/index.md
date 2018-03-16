@@ -1,14 +1,12 @@
-#Vorarbeiten und generelle Informationen
-Grundlegende Informationen zur Workshop-Umgebung (OSGeoLive, Pfade, URLs, Credentials) und notwendige Installationen (nvm, npm)
+# First steps
 
-Setup für eigene Rechner:
+Now that we have set up our development setup and learned the basics about React
+and EcmaScript 6, we will start by creating a simple React based webapplication
+by the use of [create-react-app](https://github.com/facebook/create-react-app),
+that will include a simple react-geo component. This application will be extended
+towards a fully functional mapping application little by little later on.
 
-NVM installieren:
-```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-```
-
-Neueste npm version installieren:
-```
-nvm i v8
-```
+  * [Base React application](first-steps/create-react-app.md)
+  * [Development notes](first-steps/webpack-hotreload.md)
+  * [Include react-geo dependency](first-steps/basispakete.md)
+  * [Include a react-geo component](first-steps/erste-komponente.md)

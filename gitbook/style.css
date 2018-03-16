@@ -6,3 +6,8 @@
 #book-search-input {
   display: none;
 }
+
+xmp {
+  margin: 0;
+  font-size: .85em !important;
+}
