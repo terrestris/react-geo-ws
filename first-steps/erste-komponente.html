@@ -79,7 +79,7 @@
         data-chapter-title="Include a react-geo component"
         data-filepath="first-steps/erste-komponente.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:29:19 GMT+0000 (UTC)"
+        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -435,17 +435,39 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="erste-komponente">Erste Komponente</h1>
-<h3 id="simplebutton">SimpleButton</h3>
-<p>Ein einfacher Button. <a href="https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html" target="_blank">Beispiele</a></p>
-<pre><code>&lt;SimpleButton onClick={() =&gt; {alert(&apos;huhu&apos;);}}/&gt;
-</code></pre><p>Zur Verwendung des <code>SimpleButton</code> muss die entsprechende Klasse importiert werden.</p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p></p>
-<p>Um die Komponenten korrekt darzustellen m&#xFC;ssen die stylesheets von Ant Design und react-geo importiert werden.</p>
-<p>Hinweis auf import syntax (css, svg, &#x2026;).</p>
-</blockquote>
+                        <h1 id="include-a-reactgeo-compoment">Include a react-geo compoment</h1>
+<p>Now that we have <code>react-geo</code> installed, we can use it&apos;s components in the
+<em>my-app</em> application. For demonstration purposes we&apos;ll now
+add a <a href="(https:/terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html">simple button</a>)
+to the main frame of the application.</p>
+<p>Please open a text editor (if not already done) and open the file <code>App.js</code> from
+the <code>src</code> directory of your <em>my-app</em> application. Now import the
+binding of the <code>SimpleButton</code> class with the following statement:</p>
+<pre><code>import {
+  SimpleButton
+} from &apos;@terrestris/react-geo&apos;;
+</code></pre><p>In addition to the source of the classes we have to import the styles of <code>react-geo</code>
+and <code>antd</code>:</p>
+<pre><code>import &apos;antd/dist/antd.css&apos;;
+import &apos;./react-geo.css&apos;;
+</code></pre><p>Now make use of the imported class by integrating it to the <code>App-intro</code> paragraph
+inside the <code>App</code> div:</p>
+<pre><code>&lt;SimpleButton&gt;
+  Hello world!
+&lt;/SimpleButton&gt;
+</code></pre><p>Save the file, visit the application in your browser (if you haven&apos;t closed it,
+you should see the changes directly, otherwise reopen <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>)
+and you should see a blue button labelled with the text <em>Hello world</em>.</p>
 <p><a href="../screenshots/hallo_welt_button.png"><img src="../screenshots/hallo_welt_button.png" alt=""></a></p>
+<p>Congratulations! You just created a complete React application including your first
+<code>react-geo</code> component with a few commands! We will now enhance the button to alert
+once it has been clicked by implementing a <code>onClick</code> callback function:</p>
+<pre><code>&lt;SimpleButton
+  onClick={() =&gt; {alert(&apos;Hello World!&apos;);}}
+&gt;
+</code></pre><p>Save the changes and test the results by clicking on the button. You should now
+see a simple alert message with a <em>Hello World!</em> message.</p>
+<p>You final solution should look like the following snippet:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./logo.svg&apos;</span>;
 
@@ -463,13 +485,13 @@
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-header&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">{logo}</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-logo&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;logo&quot;</span> /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-title&quot;</span>&gt;</span>Hallo Welt!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-title&quot;</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-intro&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-              <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;huhu&apos;);}}
+              <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
             &gt;
-              Hallo Welt!
+              Hello World!
             <span class="hljs-tag">&lt;/<span class="hljs-title">SimpleButton</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
