@@ -1,5 +1,9 @@
 # Titlebar
 
+* Class representating the titlebar. Usually used in a panel.
+  * Text content
+  * `tools` prop: Buttons that should be included in toolbar, e.g. close.
+
 [![](../screenshots/titlebar.png)](../screenshots/titlebar.png)
 
 ```javascript

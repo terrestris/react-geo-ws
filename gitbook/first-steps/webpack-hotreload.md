@@ -1,8 +1,10 @@
 
-# Webpack
+# Development notes
 
+`create-react-app` includes a [webpack]() development server. This server allows you to 'hot deploy'
+your edited code. This means that your code changes will be immediatly visible in the browser.
 
-* App.js editieren --> hotreload
+* Edit app.js to modify the example… and let the magic happen!
 
 [![](../screenshots/hallo_welt.png)](../screenshots/hallo_welt.png)
 

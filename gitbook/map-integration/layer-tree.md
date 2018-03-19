@@ -1,10 +1,17 @@
+# LayerTree
+
+* Tree component displaying the map layers in a hierarchical way
+
+Autoconfigured with the topmost layer group ([OpenLayers LayerGroup](https://openlayers.org/en/latest/examples/layer-group.html)) of passed map:
+
 ```javascript
 <LayerTree
   map={map}
 />
 ```
 
-Verwendung einer [OpenLayers LayerGroup](https://openlayers.org/en/latest/examples/layer-group.html)
+The layer group ([OpenLayers LayerGroup](https://openlayers.org/en/latest/examples/layer-group.html)) can be passed as a prop as well:
+
 ```javascript
 const layerGroup = new OlLayerGroup({
   name: 'Layergroup',

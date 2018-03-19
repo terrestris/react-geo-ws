@@ -10,7 +10,7 @@
   * [Development notes](first-steps/webpack-hotreload.md)
   * [Include react-geo dependency](first-steps/basispakete.md)
   * [Include a react-geo component](first-steps/erste-komponente.md)
-* [A taste of react-geo components](map-integration/index.md)
+* [react-geo components](map-integration/index.md)
   * [MapComponent](map-integration/map-component.md)
   * [Titlebar](map-integration/titlebar.md)
   * [NominatimSearch](map-integration/nominatim-search.md)

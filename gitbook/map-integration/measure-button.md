@@ -1,5 +1,7 @@
 # MeasureButton
 
+* Button (toggle) to en/disable certain `ol.interaction`s and `ol.layer`s to measure a distance, a polygonal area or an angles
+
 [![](../screenshots/measure_button.png)](../screenshots/measure_button.png)
 
 ```javascript

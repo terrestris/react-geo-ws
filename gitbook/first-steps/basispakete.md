@@ -1,6 +1,6 @@
 # Include react-geo dependency
 
-`react-geo` is published at [https://www.npmjs.com/](https://www.npmjs.com/) and
+`react-geo` is published at [https://www.npmjs.com/package/@terrestris/react-geo](https://www.npmjs.com/package/@terrestris/react-geo) and
 can be integrated and installed in your *{{ book.reactAppName }}* application via
 basic `npm` commands.
 
@@ -26,20 +26,30 @@ include `react-geo`:
 npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of ol@~4.0 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
-`npm` provides several techniques to express the type of a dependency of a project.
-While [dependencies](https://docs.npmjs.com/files/package.json#dependencies) are
+`npm` has three different types of dependencies:
+
+#### `dependencies`
+
+[dependencies](https://docs.npmjs.com/files/package.json#dependencies) are
 used to directly specify packages needed to *run* your application's code (e.g. a front-end
-library like [Bootstrap](https://getbootstrap.com/)), [devDependencies](https://docs.npmjs.com/files/package.json#devdependencies)
+library like [Bootstrap](https://getbootstrap.com/))
+#### `devDependecies`
+
+[devDependencies](https://docs.npmjs.com/files/package.json#devdependencies)
 are reserved to specify packages needed to *build* your application's code (e.g.
 test harnesses like [Jest](https://facebook.github.io/jest/) or transpilers like
-[Babel](https://babeljs.io/)). However, under some conditions, one wants to express
+[Babel](https://babeljs.io/)).
+#### `peerDependencies`
+
+However, under some conditions, one wants to express
 the *compatibility* of a certain package with the host package and npm calls this
 dependency a [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies).
 Ususally this is used to express the dependency of a plugin inside this host package
 or similiar. In `react-geo` we need to have `antd`, `ol` and `react` defined as peer
 dependencies due to scope issues, because all of them were usually referenced by
-the host package/the application itself in a certain version. As `npm` handles
-dependencies hierachically including those packages in `react-geo` twice would
+the host package/the application itself in a certain version.
+
+As `npm` handles dependencies hierachically including those packages in `react-geo` twice would
 lead to two different dependencies available in your application at runtime. To
 share the dependencies between your host application and `react-geo`, we advice
 `react-geo` to use the depencies given by the host package.
