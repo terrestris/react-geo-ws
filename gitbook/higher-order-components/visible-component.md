@@ -1,5 +1,7 @@
 # `VisibleComponent` / `isVisibleComponent`
 
+* Wrapped components will be checked against the activeModules array of the state: If the wrapped component (identified by it's name) is included in the state, it will be rendered, if not, it wont.
+
 ```
 import React from 'react';
 import { render } from 'react-dom';

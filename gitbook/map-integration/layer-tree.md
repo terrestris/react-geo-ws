@@ -43,4 +43,4 @@ const layerGroup = new OlLayerGroup({
 />
 ```
 
-Weitere Beispiele [hier](https://terrestris.github.io/react-geo/examples/LayerTree/LayerTree.example.html)
+[Further examples ](https://terrestris.github.io/react-geo/examples/LayerTree/LayerTree.example.html)
