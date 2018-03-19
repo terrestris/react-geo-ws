@@ -2,11 +2,7 @@
 
 # Workshop *{{ book.workshopName }}*
 
-Welcome to the **{{ book.workshopName }}** workshop. This workshop is designed to 
-give you a comprehensive overview of [react-geo](https://github.com/terrestris/react-geo) 
-as a library of geo-related application components available in combination with
-[React](https://github.com/facebook/react), [antd](https://github.com/ant-design/ant-design) 
-and [OpenLayers](https://github.com/openlayers/openlayers).
+Welcome to the workshop **{{ book.workshopName }}**. This workshop is designed to give you a comprehensive overview of [react-geo](https://github.com/terrestris/react-geo) as a library of geo-related application components available in combination with [React](https://github.com/facebook/react), [Ant Design](https://github.com/ant-design/ant-design) and [OpenLayers](https://github.com/openlayers/openlayers).
 
 > **info**
 > If you want to visit this page on your own device or to print the PDF version,
@@ -14,9 +10,7 @@ and [OpenLayers](https://github.com/openlayers/openlayers).
 
 ## Setup
 
-The following instructions and exercises assume that you have some requirements
-fulfilled on your local machine. Please check if you have the consequent
-packages installed:
+The following instructions and exercises assume that you have some requirements fulfilled on your local machine. Please check if you have the consequent packages installed:
   * A suitable text editor, e.g. the lightweight [Atom](https://atom.io/) editor.
   * [NodeJS](https://nodejs.org/en/) in version 8 or higher.
 
@@ -31,7 +25,7 @@ knowledge base.
 
 * [Basics](./introduction/README.md) - Dive into the basics of EcmaScript 6, React and npm.
 * [First steps](first-steps/index.md) - Learn how to create your own React app and how to include react-geo in it.
-* [A taste of react-geo components](map-integration/index.md) - Extend your application with some react-geo components.
+* [react-geo components](map-integration/index.md) - Extend your application with some react-geo components.
 * [Higher order components / Provider](higher-order-components/general.md) - Have a look at more advanced components.
 
 ## Authors

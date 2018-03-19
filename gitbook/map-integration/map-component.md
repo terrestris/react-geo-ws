@@ -1,6 +1,12 @@
 # MapComponent
 
+Wrapper for OpenLayers map. The `ol.map` is passed to the `MapComponent` as a prop.
+
 [![](../screenshots/map_component.png)](../screenshots/map_component.png)
+
+* The map object can be shared across the whole application without passing it as prop to the whole render tree.
+* The map can be created asynchronusly (using a [Promise](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)) so that every child of the MapProvider is just rendered when the map is ready.
+
 
 ```javascript
 import React, { Component } from 'react';
@@ -25,6 +31,7 @@ const layer = new OlLayerTile({
 
 const center = [ 788453.4890155146, 6573085.729161344 ];
 
+// create a new instance of ol.map in ES6 syntax
 const map = new OlMap({
   view: new OlView({
     center: center,
@@ -49,4 +56,10 @@ export default App;
 
 ```
 
-
+Beside the OpenLayers style the app needs its own stylesheet, e.g. to size the map.
+```css
+#map {
+  height: 100%;
+  width: 100%;
+}
+```

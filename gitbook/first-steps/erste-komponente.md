@@ -3,28 +3,31 @@
 Now that we have `react-geo` installed, we can use it's components in the
 *{{ book.reactAppName }}* application. For demonstration purposes we'll now
 add a [simple button]((https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html))
-to the main frame of the application.
+to the application.
 
 Please open a text editor (if not already done) and open the file `App.js` from
 the `src` directory of your *{{ book.reactAppName }}* application. Now import the
-binding of the `SimpleButton` class with the following statement:
+`SimpleButton` class with the following statement:
 
-```
+```javascript
 import {
   SimpleButton
 } from '@terrestris/react-geo';
 ```
 
-In addition to the source of the classes we have to import the styles of `react-geo`
-and `antd`:
+The style definitions of `react-geo` and `antd` need to be imported as well:
 
-```
+```javascript
 import 'antd/dist/antd.css';
 import './react-geo.css';
 ```
 
-Now make use of the imported class by integrating it to the `App-intro` paragraph
-inside the `App` div:
+> **info**
+> Please note that we are importing css files with the ES6 `import` here. This needs
+> a properly configured [css-loader](https://www.npmjs.com/package/css-loader).
+> `create-react-app` includes this.
+
+Now make use of the imported class by integrating it to the `render` method inside the `App` div (e.g. within the `<p>`-element):
 
 ```
 <SimpleButton>
@@ -32,9 +35,9 @@ inside the `App` div:
 </SimpleButton>
 ```
 
-Save the file, visit the application in your browser (if you haven't closed it,
-you should see the changes directly, otherwise reopen [http://localhost:3000](http://localhost:3000))
-and you should see a blue button labelled with the text *Hello world*.
+Save the file, open the application in your browser.
+You should see the changes directly, otherwise reopen [http://localhost:3000](http://localhost:3000).
+A blue button labelled with the text *Hello world* will be rendered.
 
 [![](../screenshots/hallo_welt_button.png)](../screenshots/hallo_welt_button.png)
 
@@ -42,7 +45,7 @@ Congratulations! You just created a complete React application including your fi
 `react-geo` component with a few commands! We will now enhance the button to alert
 once it has been clicked by implementing a `onClick` callback function:
 
-```
+```javascript
 <SimpleButton
   onClick={() => {alert('Hello World!');}}
 >
@@ -51,7 +54,7 @@ once it has been clicked by implementing a `onClick` callback function:
 Save the changes and test the results by clicking on the button. You should now
 see a simple alert message with a *Hello World!* message.
 
-You final solution should look like the following snippet:
+Your final solution should look like the following snippet:
 
 ```javascript
 import React, { Component } from 'react';

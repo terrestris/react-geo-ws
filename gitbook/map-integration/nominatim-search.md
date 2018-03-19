@@ -1,5 +1,8 @@
 # NominatimSearch
 
+* Component that provides a search field querying [nominatim search](http://wiki.openstreetmap.org/wiki/Nominatim) as geocoder
+  * not limited to Nominatim search, see props `nominatimBaseUrl`
+
 [![](../screenshots/nominatim_search.png)](../screenshots/nominatim_search.png)
 
 ```javascript

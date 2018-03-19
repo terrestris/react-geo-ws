@@ -1,11 +1,10 @@
 # npm
+[npm](http://np,js.com) is the package manager for Node.js (a JavaScript runtime environment) and the world’s largest software registry (more than 600k packages)
+with approximately 3 billion downloads per week.
+
 <img src="../images/npm_logo.png" alt="" style="width: 100px;"/>
 
-[npm](http://np,js.com) is the package manager for Node.js and the world’s largest software registry (more than 600k packages)
-with approximately 3 billion downloads per week.
-You can use npm to
-
-
+You can use npm to:
 
 * Adapt packages to your apps, or incorporate them as they are.
 

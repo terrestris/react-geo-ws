@@ -1,7 +1,14 @@
 # `MapProvider` / `mappify`
-* erläuterungen....
 
-```javascript
+## `MapProvider`
+* The `MapProvider` supplies the passed map to the React context (see also [here](https://reactjs.org/docs/context.html)) for the child elements.
+
+## `mappify`
+
+* The `mappify` HOC graps a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passed it as a prop to the wrapped component
+* Commonly used in combination with the `MapProvider`
+
+```
 import React, { Component } from 'react';
 
 import './App.css';
