@@ -79,7 +79,7 @@
         data-chapter-title="ES6"
         data-filepath="introduction/es6.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -442,6 +442,69 @@ AS the name suggests, ES6 (later renamed to ES2015) is the sixth edition and cam
 including classes and modules. Some Browsers do not (or only partially) support ES6, but the ES6 code can be transpiled in
 ES5, which enjoy a broader compability.</p>
 <p>JavaScript frameworks and libraries to build modern web-applications are written in ES6.</p>
+<h2 id="import">import</h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { CircleMenu } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-geo&apos;</span>;
+</code></pre>
+<h3 id="export">export</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&apos;Peter&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> name;
+</code></pre>
+<h2 id="variable-declaration">variable declaration</h2>
+<ul>
+<li>ES5: <code>var</code></li>
+<li>ES6: <code>var</code>, <code>let</code> and <code>const</code>:<ul>
+<li>Scope dependent</li>
+</ul>
+</li>
+</ul>
+<h3 id="function-definition">Function definition</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> myFunc = fucntion (myArg) {
+  <span class="hljs-keyword">if</span> (!myArg) {
+    myArg = <span class="hljs-string">&apos;Peter&apos;</span>
+  };
+  <span class="hljs-keyword">return</span> myArg + <span class="hljs-string">&apos; is the best arg!&apos;</span>;
+}
+<span class="hljs-comment">// ES6</span>
+<span class="hljs-keyword">const</span> myFunc = (myArg = <span class="hljs-string">&apos;Peter&apos;</span>) =&gt; {
+  <span class="hljs-keyword">return</span> myArg + <span class="hljs-string">&apos; is the best arg!&apos;</span>;
+} <span class="hljs-comment">// myFunc() ----&gt; &apos;Peter is the best arg!&apos;</span>
+<span class="hljs-comment">// ES6 shortened</span>
+<span class="hljs-keyword">const</span> myFunc = myArg =&gt; myArg + <span class="hljs-string">&apos; is the best arg!&apos;</span>;
+</code></pre>
+<h3 id="template-string">Template string</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">1909</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Year: &apos;</span> + a)
+<span class="hljs-comment">// ES6</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Year <span class="hljs-subst">${a}</span>`</span>)
+</code></pre>
+<h3 id="destructuring">Destructuring</h3>
+<p><em>Example 1</em>: Object destructuring </p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> obj = {
+  name: <span class="hljs-string">&apos;Peter&apos;</span>,
+  age: <span class="hljs-number">55</span>
+}
+<span class="hljs-keyword">var</span> age = obj.age;
+
+<span class="hljs-comment">// ES6</span>
+<span class="hljs-keyword">const</span> obj = {
+  name: <span class="hljs-string">&apos;Peter&apos;</span>,
+  age: <span class="hljs-number">55</span>
+}
+<span class="hljs-keyword">const</span> {
+  age
+} = obj;
+</code></pre>
+<p><em>Example 2</em>:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> user = {name: <span class="hljs-string">&apos;peter&apos;</span>, age: <span class="hljs-number">12</span>};
+user = <span class="hljs-built_in">Object</span>.assign(user, {email: <span class="hljs-string">&apos;peter@love.de&apos;</span>});
+<span class="hljs-comment">// ES6</span>
+<span class="hljs-keyword">let</span> user = {name: <span class="hljs-string">&apos;peter&apos;</span>, age: <span class="hljs-number">12</span>};
+user = {...user, email: <span class="hljs-string">&apos;peter@love.de&apos;</span>};
+</code></pre>
 
                     
                     </section>

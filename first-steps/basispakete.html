@@ -79,7 +79,7 @@
         data-chapter-title="Include react-geo dependency"
         data-filepath="first-steps/basispakete.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -436,7 +436,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="include-reactgeo-dependency">Include react-geo dependency</h1>
-<p><code>react-geo</code> is published at <a href="https://www.npmjs.com/" target="_blank">https://www.npmjs.com/</a> and
+<p><code>react-geo</code> is published at <a href="https://www.npmjs.com/package/@terrestris/react-geo" target="_blank">https://www.npmjs.com/package/@terrestris/react-geo</a> and
 can be integrated and installed in your <em>my-app</em> application via
 basic <code>npm</code> commands.</p>
 <h2 id="add-reactgeo-dependency">Add react-geo dependency</h2>
@@ -453,20 +453,25 @@ include <code>react-geo</code>:</p>
 npm WARN @terrestris/react-geo@5.6.0 requires a peer of ol@~4.0 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
-<p><code>npm</code> provides several techniques to express the type of a dependency of a project.
-While <a href="https://docs.npmjs.com/files/package.json#dependencies" target="_blank">dependencies</a> are
+<p><code>npm</code> has three different types of dependencies:</p>
+<h4 id="dependencies"><code>dependencies</code></h4>
+<p><a href="https://docs.npmjs.com/files/package.json#dependencies" target="_blank">dependencies</a> are
 used to directly specify packages needed to <em>run</em> your application&apos;s code (e.g. a front-end
-library like <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>), <a href="https://docs.npmjs.com/files/package.json#devdependencies" target="_blank">devDependencies</a>
+library like <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>)</p>
+<h4 id="devdependecies"><code>devDependecies</code></h4>
+<p><a href="https://docs.npmjs.com/files/package.json#devdependencies" target="_blank">devDependencies</a>
 are reserved to specify packages needed to <em>build</em> your application&apos;s code (e.g.
 test harnesses like <a href="https://facebook.github.io/jest/" target="_blank">Jest</a> or transpilers like
-<a href="https://babeljs.io/" target="_blank">Babel</a>). However, under some conditions, one wants to express
+<a href="https://babeljs.io/" target="_blank">Babel</a>).</p>
+<h4 id="peerdependencies"><code>peerDependencies</code></h4>
+<p>However, under some conditions, one wants to express
 the <em>compatibility</em> of a certain package with the host package and npm calls this
 dependency a <a href="https://docs.npmjs.com/files/package.json#peerdependencies" target="_blank">peerDependencies</a>.
 Ususally this is used to express the dependency of a plugin inside this host package
 or similiar. In <code>react-geo</code> we need to have <code>antd</code>, <code>ol</code> and <code>react</code> defined as peer
 dependencies due to scope issues, because all of them were usually referenced by
-the host package/the application itself in a certain version. As <code>npm</code> handles
-dependencies hierachically including those packages in <code>react-geo</code> twice would
+the host package/the application itself in a certain version.</p>
+<p>As <code>npm</code> handles dependencies hierachically including those packages in <code>react-geo</code> twice would
 lead to two different dependencies available in your application at runtime. To
 share the dependencies between your host application and <code>react-geo</code>, we advice
 <code>react-geo</code> to use the depencies given by the host package.</p>

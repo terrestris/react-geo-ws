@@ -79,7 +79,7 @@
         data-chapter-title="Include a react-geo component"
         data-filepath="first-steps/erste-komponente.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -439,35 +439,42 @@
 <p>Now that we have <code>react-geo</code> installed, we can use it&apos;s components in the
 <em>my-app</em> application. For demonstration purposes we&apos;ll now
 add a <a href="(https:/terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html">simple button</a>)
-to the main frame of the application.</p>
+to the application.</p>
 <p>Please open a text editor (if not already done) and open the file <code>App.js</code> from
 the <code>src</code> directory of your <em>my-app</em> application. Now import the
-binding of the <code>SimpleButton</code> class with the following statement:</p>
-<pre><code>import {
+<code>SimpleButton</code> class with the following statement:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {
   SimpleButton
-} from &apos;@terrestris/react-geo&apos;;
-</code></pre><p>In addition to the source of the classes we have to import the styles of <code>react-geo</code>
-and <code>antd</code>:</p>
-<pre><code>import &apos;antd/dist/antd.css&apos;;
-import &apos;./react-geo.css&apos;;
-</code></pre><p>Now make use of the imported class by integrating it to the <code>App-intro</code> paragraph
-inside the <code>App</code> div:</p>
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
+</code></pre>
+<p>The style definitions of <code>react-geo</code> and <code>antd</code> need to be imported as well:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
+<p>
+Please note that we are importing css files with the ES6 <code>import</code> here. This needs
+a properly configured <a href="https://www.npmjs.com/package/css-loader" target="_blank">css-loader</a>.
+<code>create-react-app</code> includes this.</p>
+</blockquote>
+<p>Now make use of the imported class by integrating it to the <code>render</code> method inside the <code>App</code> div (e.g. within the <code>&lt;p&gt;</code>-element):</p>
 <pre><code>&lt;SimpleButton&gt;
   Hello world!
 &lt;/SimpleButton&gt;
-</code></pre><p>Save the file, visit the application in your browser (if you haven&apos;t closed it,
-you should see the changes directly, otherwise reopen <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>)
-and you should see a blue button labelled with the text <em>Hello world</em>.</p>
+</code></pre><p>Save the file, open the application in your browser.
+You should see the changes directly, otherwise reopen <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.
+A blue button labelled with the text <em>Hello world</em> will be rendered.</p>
 <p><a href="../screenshots/hallo_welt_button.png"><img src="../screenshots/hallo_welt_button.png" alt=""></a></p>
 <p>Congratulations! You just created a complete React application including your first
 <code>react-geo</code> component with a few commands! We will now enhance the button to alert
 once it has been clicked by implementing a <code>onClick</code> callback function:</p>
-<pre><code>&lt;SimpleButton
-  onClick={() =&gt; {alert(&apos;Hello World!&apos;);}}
+<pre><code class="lang-javascript">&lt;SimpleButton
+  onClick={() =&gt; {alert(<span class="hljs-string">&apos;Hello World!&apos;</span>);}}
 &gt;
-</code></pre><p>Save the changes and test the results by clicking on the button. You should now
+</code></pre>
+<p>Save the changes and test the results by clicking on the button. You should now
 see a simple alert message with a <em>Hello World!</em> message.</p>
-<p>You final solution should look like the following snippet:</p>
+<p>Your final solution should look like the following snippet:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./logo.svg&apos;</span>;
 
@@ -512,7 +519,7 @@ see a simple alert message with a <em>Hello World!</em> message.</p>
         <a href="../first-steps/basispakete.html" class="navigation navigation-prev " aria-label="Previous page: Include react-geo dependency"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../map-integration/index.html" class="navigation navigation-next " aria-label="Next page: A taste of react-geo components"><i class="fa fa-angle-right"></i></a>
+        <a href="../map-integration/index.html" class="navigation navigation-next " aria-label="Next page: react-geo components"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -77,7 +77,7 @@
         data-chapter-title="VisibleComponent / `isVisibleComponent`"
         data-filepath="higher-order-components/visible-component.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -262,7 +262,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -434,6 +434,9 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="visiblecomponent--isvisiblecomponent"><code>VisibleComponent</code> / <code>isVisibleComponent</code></h1>
+<ul>
+<li>Wrapped components will be checked against the activeModules array of the state: If the wrapped component (identified by it&apos;s name) is included in the state, it will be rendered, if not, it wont.</li>
+</ul>
 <pre><code>import React from &apos;react&apos;;
 import { render } from &apos;react-dom&apos;;
 import { Button } from &apos;antd&apos;;

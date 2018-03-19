@@ -79,7 +79,7 @@
         data-chapter-title="MapProvider / `mappify`"
         data-filepath="higher-order-components/mappify.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -436,10 +436,16 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="mapprovider--mappify"><code>MapProvider</code> / <code>mappify</code></h1>
+<h2 id="mapprovider"><code>MapProvider</code></h2>
 <ul>
-<li>erl&#xE4;uterungen....</li>
+<li>The <code>MapProvider</code> supplies the passed map to the React context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) for the child elements.</li>
 </ul>
-<pre><code class="lang-javascript">import React, { Component } from &apos;react&apos;;
+<h2 id="mappify"><code>mappify</code></h2>
+<ul>
+<li>The <code>mappify</code> HOC graps a map object from the context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) and passed it as a prop to the wrapped component</li>
+<li>Commonly used in combination with the <code>MapProvider</code></li>
+</ul>
+<pre><code>import React, { Component } from &apos;react&apos;;
 
 import &apos;./App.css&apos;;
 import &apos;ol/ol.css&apos;;
@@ -507,7 +513,6 @@ class App extends Component {
 
 export default App;
 </code></pre>
-
                     
                     </section>
                 

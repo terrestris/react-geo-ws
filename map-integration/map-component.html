@@ -79,7 +79,7 @@
         data-chapter-title="MapComponent"
         data-filepath="map-integration/map-component.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -436,7 +436,12 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="mapcomponent">MapComponent</h1>
+<p>Wrapper for OpenLayers map. The <code>ol.map</code> is passed to the <code>MapComponent</code> as a prop.</p>
 <p><a href="../screenshots/map_component.png"><img src="../screenshots/map_component.png" alt=""></a></p>
+<ul>
+<li>The map object can be shared across the whole application without passing it as prop to the whole render tree.</li>
+<li>The map can be created asynchronusly (using a <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>) so that every child of the MapProvider is just rendered when the map is ready.</li>
+</ul>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
@@ -459,6 +464,7 @@
 
 <span class="hljs-keyword">const</span> center = [ <span class="hljs-number">788453.4890155146</span>, <span class="hljs-number">6573085.729161344</span> ];
 
+<span class="hljs-comment">// create a new instance of ol.map in ES6 syntax</span>
 <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> OlMap({
   view: <span class="hljs-keyword">new</span> OlView({
     center: center,
@@ -481,6 +487,12 @@
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
 </code></pre>
+<p>Beside the OpenLayers style the app needs its own stylesheet, e.g. to size the map.</p>
+<pre><code class="lang-css"><span class="hljs-id">#map</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+}</span>
+</code></pre>
 
                     
                     </section>
@@ -491,7 +503,7 @@
         </div>
 
         
-        <a href="../map-integration/index.html" class="navigation navigation-prev " aria-label="Previous page: A taste of react-geo components"><i class="fa fa-angle-left"></i></a>
+        <a href="../map-integration/index.html" class="navigation navigation-prev " aria-label="Previous page: react-geo components"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../map-integration/titlebar.html" class="navigation navigation-next " aria-label="Next page: Titlebar"><i class="fa fa-angle-right"></i></a>

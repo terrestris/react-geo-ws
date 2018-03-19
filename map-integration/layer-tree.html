@@ -79,7 +79,7 @@
         data-chapter-title="LayerTree"
         data-filepath="map-integration/layer-tree.md"
         data-basepath=".."
-        data-revision="Fri Mar 16 2018 16:53:12 GMT+0000 (UTC)"
+        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -264,7 +264,7 @@
                         
                             <b>3.</b>
                         
-                        A taste of react-geo components
+                        react-geo components
                     </a>
             
             
@@ -435,11 +435,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <pre><code class="lang-javascript">&lt;LayerTree
+                        <h1 id="layertree">LayerTree</h1>
+<ul>
+<li>Tree component displaying the map layers in a hierarchical way</li>
+</ul>
+<p>Autoconfigured with the topmost layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) of passed map:</p>
+<pre><code class="lang-javascript">&lt;LayerTree
   map={map}
 /&gt;
 </code></pre>
-<p>Verwendung einer <a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a></p>
+<p>The layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) can be passed as a prop as well:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
   name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
   layers: [
@@ -469,7 +474,7 @@
   <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
 /&gt;</span>
 </span></code></pre>
-<p>Weitere Beispiele <a href="https://terrestris.github.io/react-geo/examples/LayerTree/LayerTree.example.html" target="_blank">hier</a></p>
+<p><a href="https://terrestris.github.io/react-geo/examples/LayerTree/LayerTree.example.html" target="_blank">Further examples </a></p>
 
                     
                     </section>
