@@ -57,3 +57,13 @@ The result is the `package.json` including all important settings, scripts and d
 ```
 
 Please check the [npm docs](https://docs.npmjs.com/) for further information.
+
+
+# Node version manager NVM
+* bash script to manage multiple active node.js versions
+* See [here](https://github.com/creationix/nvm)
+
+```
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+nvm i v8
+```
