@@ -79,7 +79,7 @@
         data-chapter-title="ES6"
         data-filepath="introduction/es6.md"
         data-basepath=".."
-        data-revision="Tue Mar 20 2018 15:59:18 GMT+0000 (UTC)"
+        data-revision="Tue Mar 20 2018 21:19:33 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -442,18 +442,18 @@ AS the name suggests, ES6 (later renamed to ES2015) is the sixth edition and cam
 including classes and modules. Some Browsers do not (or only partially) support ES6, but the ES6 code can be transpiled in
 ES5, which enjoy a broader compability.</p>
 <p>JavaScript frameworks and libraries to build modern web-applications are written in ES6.</p>
-<h2 id="import">import</h2>
+<h2 id="import"><code>import</code></h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { CircleMenu } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-geo&apos;</span>;
 </code></pre>
-<h3 id="export">export</h3>
+<h3 id="export"><code>export</code></h3>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&apos;Peter&apos;</span>;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> name;
 </code></pre>
-<h2 id="variable-declaration">variable declaration</h2>
+<h2 id="variable-declaration">Variable declaration</h2>
 <ul>
 <li>ES5: <code>var</code></li>
 <li>ES6: <code>var</code>, <code>let</code> and <code>const</code>:<ul>
-<li>Scope dependent</li>
+<li>scope dependent</li>
 </ul>
 </li>
 </ul>
@@ -479,7 +479,8 @@ ES5, which enjoy a broader compability.</p>
 <span class="hljs-comment">// ES6</span>
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Year <span class="hljs-subst">${a}</span>`</span>)
 </code></pre>
-<h3 id="destructuring">Destructuring</h3>
+<h3 id="destructuring-assignment">Destructuring assignment</h3>
+<p>See also <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank">here</a></p>
 <p><em>Example 1</em>: Object destructuring </p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
 <span class="hljs-keyword">var</span> obj = {
@@ -497,7 +498,7 @@ ES5, which enjoy a broader compability.</p>
   age
 } = obj;
 </code></pre>
-<p><em>Example 2</em>:</p>
+<p><em>Example 2</em> (also uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank">Spread operator</a>):</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// ES5</span>
 <span class="hljs-keyword">var</span> user = {name: <span class="hljs-string">&apos;peter&apos;</span>, age: <span class="hljs-number">12</span>};
 user = <span class="hljs-built_in">Object</span>.assign(user, {email: <span class="hljs-string">&apos;peter@love.de&apos;</span>});
