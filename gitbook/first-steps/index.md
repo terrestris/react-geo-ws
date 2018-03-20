@@ -8,7 +8,7 @@ towards a fully functional mapping application little by little later on.
 
 Content of this chapter:
 
-  * [Base React application](first-steps/create-react-app.md)
-  * [Development notes](first-steps/webpack-hotreload.md)
-  * [Include react-geo dependency](first-steps/basispakete.md)
-  * [Include a react-geo component](first-steps/erste-komponente.md)
+  * [Base React application](./create-react-app.md)
+  * [Development notes](./webpack-hotreload.md)
+  * [Include react-geo dependency](./basispakete.md)
+  * [Include a react-geo component](./erste-komponente.md)

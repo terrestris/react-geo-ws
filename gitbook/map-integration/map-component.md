@@ -1,6 +1,6 @@
 # MapComponent
 
-Wrapper for OpenLayers map. The `ol.map` is passed to the `MapComponent` as a prop.
+Wrapper for an OpenLayers map. The `ol.map` is passed to the `MapComponent` as a prop.
 
 [![](../screenshots/map_component.png)](../screenshots/map_component.png)
 

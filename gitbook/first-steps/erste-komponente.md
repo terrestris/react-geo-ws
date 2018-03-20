@@ -2,7 +2,7 @@
 
 Now that we have `react-geo` installed, we can use it's components in the
 *{{ book.reactAppName }}* application. For demonstration purposes we'll now
-add a [simple button]((https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html))
+add a [simple button](https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html)
 to the application.
 
 Please open a text editor (if not already done) and open the file `App.js` from

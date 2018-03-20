@@ -9,21 +9,22 @@ ES5, which enjoy a broader compability.
 
 JavaScript frameworks and libraries to build modern web-applications are written in ES6.
 
-## import
+## `import`
 ```javascript
 import { CircleMenu } from 'react-geo';
 ```
-### export
+
+### `export`
 ```javascript
 const name = 'Peter';
 export default name;
 ```
 
-## variable declaration
+## Variable declaration
 
 - ES5: `var`
 - ES6: `var`, `let` and `const`:
-  * Scope dependent
+  * scope dependent
 
 ### Function definition
 
@@ -52,7 +53,9 @@ console.log('Year: ' + a)
 console.log(`Year ${a}`)
 ```
 
-### Destructuring 
+### Destructuring assignment
+
+See also [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 *Example 1*: Object destructuring 
 
@@ -74,7 +77,7 @@ const {
 } = obj;
 ```
 
-*Example 2*:
+*Example 2* (also uses [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)):
 
 ```javascript
 // ES5
