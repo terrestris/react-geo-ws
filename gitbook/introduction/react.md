@@ -30,7 +30,8 @@ The state stores internal values of a component. It's a *serializable* represent
 
 ## Lifecycle
 
-bild 
+![](../images/react_lifecycle.png)
+[Image source](https://kunigami.blog/2015/04/28/react-js-introduction/), last accessed 03/20/2018
  
 Check [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 
