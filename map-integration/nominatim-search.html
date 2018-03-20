@@ -79,7 +79,7 @@
         data-chapter-title="NominatimSearch"
         data-filepath="map-integration/nominatim-search.md"
         data-basepath=".."
-        data-revision="Mon Mar 19 2018 14:03:50 GMT+0000 (UTC)"
+        data-revision="Tue Mar 20 2018 10:27:10 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -437,9 +437,12 @@
                     
                         <h1 id="nominatimsearch">NominatimSearch</h1>
 <ul>
-<li>Component that provides a search field querying <a href="http://wiki.openstreetmap.org/wiki/Nominatim" target="_blank">nominatim search</a> as geocoder<ul>
+<li><p>Component that provides a search field querying <a href="http://wiki.openstreetmap.org/wiki/Nominatim" target="_blank">nominatim search</a> as geocoder</p>
+<ul>
 <li>not limited to Nominatim search, see props <code>nominatimBaseUrl</code></li>
 </ul>
+</li>
+<li><p><a href="https://github.com/terrestris/react-geo/blob/master/src/Field/NominatimSearch/NominatimSearch.jsx" target="_blank">Code</a></p>
 </li>
 </ul>
 <p><a href="../screenshots/nominatim_search.png"><img src="../screenshots/nominatim_search.png" alt=""></a></p>
@@ -458,7 +461,6 @@ import OlSourceOsm from &apos;ol/source/osm&apos;;
 import {
   MapComponent,
   NominatimSearch,
-  MeasureButton,
   Titlebar
 } from &apos;@terrestris/react-geo&apos;;
 
@@ -485,13 +487,7 @@ class App extends Component {
             &lt;NominatimSearch
               key=&quot;search&quot;
               map={map}
-            /&gt;,
-            &lt;MeasureButton
-              key=&quot;measureButton&quot;
-              name=&quot;line&quot;
-              map={map}
-              measureType=&quot;line&quot;
-            &gt;
+            /&gt;
           ]}&gt;
           react-geo-app
         &lt;/Titlebar&gt;
