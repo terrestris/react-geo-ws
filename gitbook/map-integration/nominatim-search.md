@@ -23,7 +23,6 @@ import OlSourceOsm from 'ol/source/osm';
 import {
   MapComponent,
   NominatimSearch,
-  MeasureButton,
   Titlebar
 } from '@terrestris/react-geo';
 
@@ -50,13 +49,7 @@ class App extends Component {
             <NominatimSearch
               key="search"
               map={map}
-            />,
-            <MeasureButton
-              key="measureButton"
-              name="line"
-              map={map}
-              measureType="line"
-            >
+            />
           ]}>
           react-geo-app
         </Titlebar>
