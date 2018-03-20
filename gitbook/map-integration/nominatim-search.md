@@ -3,6 +3,8 @@
 * Component that provides a search field querying [nominatim search](http://wiki.openstreetmap.org/wiki/Nominatim) as geocoder
   * not limited to Nominatim search, see props `nominatimBaseUrl`
 
+* [Code](https://github.com/terrestris/react-geo/blob/master/src/Field/NominatimSearch/NominatimSearch.jsx)
+
 [![](../screenshots/nominatim_search.png)](../screenshots/nominatim_search.png)
 
 ```javascript
@@ -21,7 +23,6 @@ import OlSourceOsm from 'ol/source/osm';
 import {
   MapComponent,
   NominatimSearch,
-  MeasureButton,
   Titlebar
 } from '@terrestris/react-geo';
 
@@ -48,13 +49,7 @@ class App extends Component {
             <NominatimSearch
               key="search"
               map={map}
-            />,
-            <MeasureButton
-              key="measureButton"
-              name="line"
-              map={map}
-              measureType="line"
-            >
+            />
           ]}>
           react-geo-app
         </Titlebar>
