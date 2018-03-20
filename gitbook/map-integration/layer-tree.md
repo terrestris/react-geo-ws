@@ -2,6 +2,9 @@
 
 * Tree component displaying the map layers in a hierarchical way
 
+* [Code](https://github.com/terrestris/react-geo/blob/master/src/LayerTree/LayerTree.jsx)
+
+
 Autoconfigured with the topmost layer group ([OpenLayers LayerGroup](https://openlayers.org/en/latest/examples/layer-group.html)) of passed map:
 
 ```javascript

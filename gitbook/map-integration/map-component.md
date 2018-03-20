@@ -7,6 +7,7 @@ Wrapper for OpenLayers map. The `ol.map` is passed to the `MapComponent` as a pr
 * The map object can be shared across the whole application without passing it as prop to the whole render tree.
 * The map can be created asynchronusly (using a [Promise](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)) so that every child of the MapProvider is just rendered when the map is ready.
 
+* [Code](https://github.com/terrestris/react-geo/blob/master/src/Map/MapComponent/MapComponent.jsx)
 
 ```javascript
 import React, { Component } from 'react';

@@ -4,6 +4,8 @@
   * Text content
   * `tools` prop: Buttons that should be included in toolbar, e.g. close.
 
+* [Code](https://github.com/terrestris/react-geo/blob/master/src/Panel/Titlebar/Titlebar.jsx)
+
 [![](../screenshots/titlebar.png)](../screenshots/titlebar.png)
 
 ```javascript
@@ -23,7 +25,6 @@ import {
   MapComponent,
   Titlebar
 } from '@terrestris/react-geo';
-
 
 const layer = new OlLayerTile({
   source: new OlSourceOsm()
