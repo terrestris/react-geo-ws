@@ -52,7 +52,9 @@ console.log('Year: ' + a)
 console.log(`Year ${a}`)
 ```
 
-### Destructuring 
+### Destructuring assignment
+
+See also [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 *Example 1*: Object destructuring 
 
@@ -74,7 +76,7 @@ const {
 } = obj;
 ```
 
-*Example 2*:
+*Example 2* (also uses [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)):
 
 ```javascript
 // ES5
