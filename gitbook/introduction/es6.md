@@ -9,21 +9,22 @@ ES5, which enjoy a broader compability.
 
 JavaScript frameworks and libraries to build modern web-applications are written in ES6.
 
-## import
+## `import`
 ```javascript
 import { CircleMenu } from 'react-geo';
 ```
-### export
+
+### `export`
 ```javascript
 const name = 'Peter';
 export default name;
 ```
 
-## variable declaration
+## Variable declaration
 
 - ES5: `var`
 - ES6: `var`, `let` and `const`:
-  * Scope dependent
+  * scope dependent
 
 ### Function definition
 
