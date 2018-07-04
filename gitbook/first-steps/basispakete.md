@@ -54,11 +54,11 @@ lead to two different dependencies available in your application at runtime. To
 share the dependencies between your host application and `react-geo`, we advice
 `react-geo` to use the depencies given by the host package.
 
-To met these requirements we have to install the requested peer dependenies by
+To meet these requirements we have to install the requested peer dependenies by
 ourselfs with:
 
 ```
-npm i antd ol
+npm i antd ol@4
 ```
 
 Now we're ready to make use of all `react-geo` components and utilities inside
