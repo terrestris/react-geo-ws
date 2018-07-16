@@ -79,7 +79,7 @@
         data-chapter-title="Include react-geo dependency"
         data-filepath="first-steps/basispakete.md"
         data-basepath=".."
-        data-revision="Wed Jul 04 2018 13:36:41 GMT+0000 (UTC)"
+        data-revision="Mon Jul 16 2018 15:10:07 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -471,12 +471,12 @@ Ususally this is used to express the dependency of a plugin inside this host pac
 or similiar. In <code>react-geo</code> we need to have <code>antd</code>, <code>ol</code> and <code>react</code> defined as peer
 dependencies due to scope issues, because all of them were usually referenced by
 the host package/the application itself in a certain version.</p>
-<p>As <code>npm</code> handles dependencies hierachically including those packages in <code>react-geo</code> twice would
+<p>As <code>npm</code> handles dependencies hierachically, including those packages in <code>react-geo</code> twice would
 lead to two different dependencies available in your application at runtime. To
 share the dependencies between your host application and <code>react-geo</code>, we advice
-<code>react-geo</code> to use the depencies given by the host package.</p>
-<p>To meet these requirements we have to install the requested peer dependenies by
-ourselfs with:</p>
+<code>react-geo</code> to use the dependencies given by the host package.</p>
+<p>To meet these requirements we have to install the requested peer dependencies by
+ourselves with:</p>
 <pre><code>npm i antd ol@4
 </code></pre><p>Now we&apos;re ready to make use of all <code>react-geo</code> components and utilities inside
 our <em>my-app</em> application.</p>
