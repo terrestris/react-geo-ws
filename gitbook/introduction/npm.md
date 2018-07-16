@@ -12,7 +12,7 @@ You can use npm to:
 
 * Run packages without downloading using npx.
 
-* Share code with any npm user, any where.
+* Share code with any npm user, anywhere.
 
 * Restrict code to specific developers.
 
@@ -28,7 +28,7 @@ You can use npm to:
 
 ### package.json
 
-The command `npm init` in your project folder opens a interactive dialogue to establish a npm project.
+The command `npm init` in your project folder opens an interactive dialogue to establish a npm project.
 The result is the `package.json` including all important settings, scripts and dependencies of your project.
 
 ```

@@ -49,13 +49,13 @@ or similiar. In `react-geo` we need to have `antd`, `ol` and `react` defined as 
 dependencies due to scope issues, because all of them were usually referenced by
 the host package/the application itself in a certain version.
 
-As `npm` handles dependencies hierachically including those packages in `react-geo` twice would
+As `npm` handles dependencies hierachically, including those packages in `react-geo` twice would
 lead to two different dependencies available in your application at runtime. To
 share the dependencies between your host application and `react-geo`, we advice
-`react-geo` to use the depencies given by the host package.
+`react-geo` to use the dependencies given by the host package.
 
-To meet these requirements we have to install the requested peer dependenies by
-ourselfs with:
+To meet these requirements we have to install the requested peer dependencies by
+ourselves with:
 
 ```
 npm i antd ol@4

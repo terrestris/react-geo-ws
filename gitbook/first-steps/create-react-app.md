@@ -12,7 +12,7 @@ create a new app named *{{ book.reactAppName }}* inside this directory with:
 
 <pre><xmp>npx create-react-app {{ book.reactAppName }}</xmp></pre>
 
-This will take while, but finally you will see a list of commands you can run
+This will take a while, but finally you will see a list of commands you can run
 inside the created folder. Now switch to the project's folder with:
 
 <pre><xmp>cd {{ book.reactAppName }}</xmp></pre>
