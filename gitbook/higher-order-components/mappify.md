@@ -5,7 +5,7 @@
 
 ## `mappify`
 
-* The `mappify` HOC graps a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passed it as a prop to the wrapped component
+* The `mappify` HOC graps a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passes it as a prop to the wrapped component
 * Commonly used in combination with the `MapProvider`
 
 ```

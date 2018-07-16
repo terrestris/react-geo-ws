@@ -1,4 +1,4 @@
-# Include a react-geo compoment
+# Include a react-geo component
 
 Now that we have `react-geo` installed, we can use it's components in the
 *{{ book.reactAppName }}* application. For demonstration purposes we'll now
@@ -21,6 +21,9 @@ The style definitions of `react-geo` and `antd` need to be imported as well:
 import 'antd/dist/antd.css';
 import './react-geo.css';
 ```
+
+If the `react-geo.css` file is not yet located in the `src` directory please
+paste it from [here](https://github.com/terrestris/react-geo-ws/blob/master/gitbook/materials/react-geo.css).
 
 > **info**
 > Please note that we are importing css files with the ES6 `import` here. This needs

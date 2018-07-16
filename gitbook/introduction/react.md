@@ -19,7 +19,7 @@ Check the [docs](https://reactjs.org/docs/hello-world.html) and [Tutorial](https
 
 ## Props
 
-Props are the components configurations that you pass to instances. They are received from the above component and immutable.
+Props are the component's configurations that you pass to instances. They are received from the above component and immutable.
 For detailed information check [Components and Props](https://reactjs.org/docs/components-and-props.html)
 
 
@@ -57,4 +57,4 @@ class App extends React.Component {
 
 export default App;
 ```
-Syntatic sugar for React
+Syntactic sugar for React
