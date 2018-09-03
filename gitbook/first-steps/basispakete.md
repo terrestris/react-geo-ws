@@ -10,8 +10,11 @@ To add the dependency `react-geo` please navigate to your project's folder
 (if not already done) and execute:
 
 ```
-npm i @terrestris/react-geo --save
+npm i @terrestris/react-geo@8 --save
 ```
+
+> **info**
+> The workshop does currently only run with react-geo version 8 or smaller as create-react-app does not support ES6 dependencies.
 
 This will add the latest version of `react-geo` to your local `package.json` file
 (into the `dependencies` section) and download the distributed version of the
