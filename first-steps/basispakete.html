@@ -79,7 +79,7 @@
         data-chapter-title="Include react-geo dependency"
         data-filepath="first-steps/basispakete.md"
         data-basepath=".."
-        data-revision="Mon Jul 16 2018 15:10:07 GMT+0000 (UTC)"
+        data-revision="Mon Sep 03 2018 08:42:20 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -442,8 +442,12 @@ basic <code>npm</code> commands.</p>
 <h2 id="add-reactgeo-dependency">Add react-geo dependency</h2>
 <p>To add the dependency <code>react-geo</code> please navigate to your project&apos;s folder
 (if not already done) and execute:</p>
-<pre><code>npm i @terrestris/react-geo --save
-</code></pre><p>This will add the latest version of <code>react-geo</code> to your local <code>package.json</code> file
+<pre><code>npm i @terrestris/react-geo@8 --save
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
+<p>
+The workshop does currently only run with react-geo version 8 or smaller as create-react-app does not support ES6 dependencies.</p>
+</blockquote>
+<p>This will add the latest version of <code>react-geo</code> to your local <code>package.json</code> file
 (into the <code>dependencies</code> section) and download the distributed version of the
 library to the <code>node_modules</code> directory.</p>
 <h2 id="add-ant-design-und-openlayers-dependencies">Add Ant Design und OpenLayers dependencies</h2>
