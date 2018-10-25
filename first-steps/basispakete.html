@@ -8,7 +8,7 @@
         <title>Include react-geo dependency | react-geo - mapping mit React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="generator" content="GitBook 2.6.9">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -79,7 +79,7 @@
         data-chapter-title="Include react-geo dependency"
         data-filepath="first-steps/basispakete.md"
         data-basepath=".."
-        data-revision="Mon Sep 03 2018 08:42:20 GMT+0000 (UTC)"
+        data-revision="Thu Oct 25 2018 06:34:42 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -442,19 +442,15 @@ basic <code>npm</code> commands.</p>
 <h2 id="add-reactgeo-dependency">Add react-geo dependency</h2>
 <p>To add the dependency <code>react-geo</code> please navigate to your project&apos;s folder
 (if not already done) and execute:</p>
-<pre><code>npm i @terrestris/react-geo@8 --save
-</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
-<p>
-The workshop does currently only run with react-geo version 8 or smaller as create-react-app does not support ES6 dependencies.</p>
-</blockquote>
-<p>This will add the latest version of <code>react-geo</code> to your local <code>package.json</code> file
+<pre><code>npm i @terrestris/react-geo --save
+</code></pre><p>This will add the latest version of <code>react-geo</code> to your local <code>package.json</code> file
 (into the <code>dependencies</code> section) and download the distributed version of the
 library to the <code>node_modules</code> directory.</p>
 <h2 id="add-ant-design-und-openlayers-dependencies">Add Ant Design und OpenLayers dependencies</h2>
 <p>You may have noticed that the step from above has produced some warnings, which
 include <code>react-geo</code>:</p>
-<pre><xmp>npm WARN @terrestris/react-geo@5.6.0 requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
-npm WARN @terrestris/react-geo@5.6.0 requires a peer of ol@~4.0 but none is installed. You must install peer dependencies yourself.
+<pre><xmp>npm WARN @terrestris/react-geo@10.4.1 requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @terrestris/react-geo@10.4.1 requires a peer of ol@~5.0 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
 <p><code>npm</code> has three different types of dependencies:</p>
@@ -481,7 +477,7 @@ share the dependencies between your host application and <code>react-geo</code>,
 <code>react-geo</code> to use the dependencies given by the host package.</p>
 <p>To meet these requirements we have to install the requested peer dependencies by
 ourselves with:</p>
-<pre><code>npm i antd ol@4
+<pre><code>npm i antd ol
 </code></pre><p>Now we&apos;re ready to make use of all <code>react-geo</code> components and utilities inside
 our <em>my-app</em> application.</p>
 
