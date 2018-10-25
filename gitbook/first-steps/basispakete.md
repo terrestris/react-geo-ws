@@ -10,11 +10,8 @@ To add the dependency `react-geo` please navigate to your project's folder
 (if not already done) and execute:
 
 ```
-npm i @terrestris/react-geo@8 --save
+npm i @terrestris/react-geo --save
 ```
-
-> **info**
-> The workshop does currently only run with react-geo version 8 or smaller as create-react-app does not support ES6 dependencies.
 
 This will add the latest version of `react-geo` to your local `package.json` file
 (into the `dependencies` section) and download the distributed version of the
@@ -26,7 +23,7 @@ You may have noticed that the step from above has produced some warnings, which
 include `react-geo`:
 
 <pre><xmp>npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
-npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of ol@~4.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of ol@~5.0 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
 `npm` has three different types of dependencies:
@@ -61,7 +58,7 @@ To meet these requirements we have to install the requested peer dependencies by
 ourselves with:
 
 ```
-npm i antd ol@4
+npm i antd ol
 ```
 
 Now we're ready to make use of all `react-geo` components and utilities inside
