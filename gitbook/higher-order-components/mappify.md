@@ -30,7 +30,7 @@ import {
   mappify
 } from '@terrestris/react-geo';
 
-const MappfiedNominatimSearch = mappify(NominatimSearch);
+const MappifiedNominatimSearch = mappify(NominatimSearch);
 const MappifiedMeasureButton = mappify(MeasureButton);
 const Map = mappify(MapComponent);
 
@@ -54,7 +54,7 @@ class App extends Component {
       <div className="App">
         <MapProvider map={map}>
           <Titlebar className="titlebar" tools={[
-              <MappfiedNominatimSearch
+              <MappifiedNominatimSearch
                 key="search"
               />,
               <MappifiedMeasureButton
