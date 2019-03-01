@@ -15,10 +15,10 @@ import 'ol/ol.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
 
-import OlMap from 'ol/map';
-import OlView from 'ol/view';
-import OlLayerTile from 'ol/layer/tile';
-import OlSourceOsm from 'ol/source/osm';
+import OlMap from 'ol/Map';
+import OlView from 'ol/View';
+import OlLayerTile from 'ol/layer/Tile';
+import OlSourceOsm from 'ol/source/OSM';
 
 import {
   MapComponent,

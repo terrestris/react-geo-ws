@@ -65,6 +65,6 @@ You find the installed packages in the `node_modules` subfolder.
 * See [here](https://github.com/creationix/nvm)
 
 ```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 nvm i v8
 ```

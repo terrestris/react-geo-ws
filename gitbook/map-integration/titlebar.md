@@ -1,6 +1,6 @@
 # Titlebar
 
-* Class representating the titlebar. Usually used in a panel.
+* Class representing the titlebar. Usually used in a panel.
   * Text content
   * `tools` prop: Buttons that should be included in toolbar, e.g. close.
 
@@ -16,10 +16,10 @@ import 'ol/ol.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
 
-import OlMap from 'ol/map';
-import OlView from 'ol/view';
-import OlLayerTile from 'ol/layer/tile';
-import OlSourceOsm from 'ol/source/osm';
+import OlMap from 'ol/Map';
+import OlView from 'ol/View';
+import OlLayerTile from 'ol/layer/Tile';
+import OlSourceOsm from 'ol/source/OSM';
 
 import {
   MapComponent,
