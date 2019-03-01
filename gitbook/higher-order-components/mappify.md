@@ -5,10 +5,10 @@
 
 ## `mappify`
 
-* The `mappify` HOC graps a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passes it as a prop to the wrapped component
+* The `mappify` HOC grabs a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passes it as a prop to the wrapped component
 * Commonly used in combination with the `MapProvider`
 
-```
+```javascript
 import React, { Component } from 'react';
 
 import './App.css';
@@ -16,10 +16,10 @@ import 'ol/ol.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
 
-import OlMap from 'ol/map';
-import OlView from 'ol/view';
-import OlLayerTile from 'ol/layer/tile';
-import OlSourceOsm from 'ol/source/osm';
+import OlMap from 'ol/Map';
+import OlView from 'ol/View';
+import OlLayerTile from 'ol/layer/Tile';
+import OlSourceOsm from 'ol/source/OSM';
 
 import {
   MapComponent,
@@ -30,7 +30,7 @@ import {
   mappify
 } from '@terrestris/react-geo';
 
-const MappfiedNominatimSearch = mappify(NominatimSearch);
+const MappifiedNominatimSearch = mappify(NominatimSearch);
 const MappifiedMeasureButton = mappify(MeasureButton);
 const Map = mappify(MapComponent);
 
@@ -54,7 +54,7 @@ class App extends Component {
       <div className="App">
         <MapProvider map={map}>
           <Titlebar className="titlebar" tools={[
-              <MappfiedNominatimSearch
+              <MappifiedNominatimSearch
                 key="search"
               />,
               <MappifiedMeasureButton

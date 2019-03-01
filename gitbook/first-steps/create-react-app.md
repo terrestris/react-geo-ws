@@ -25,4 +25,4 @@ npm start
 
 To view the application in your browser please open [http://localhost:3000/](http://localhost:3000/).
 
-[![](../screenshots/hallo_welt.png)](../screenshots/hallo_welt.png)
+[![](../screenshots/cra_startpage.png)](../screenshots/cra-startpage.png)
