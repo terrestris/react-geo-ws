@@ -79,7 +79,7 @@
         data-chapter-title="MapProvider / `mappify`"
         data-filepath="higher-order-components/mappify.md"
         data-basepath=".."
-        data-revision="Wed Feb 13 2019 11:21:50 GMT+0000 (UTC)"
+        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -442,20 +442,20 @@
 </ul>
 <h2 id="mappify"><code>mappify</code></h2>
 <ul>
-<li>The <code>mappify</code> HOC graps a map object from the context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) and passes it as a prop to the wrapped component</li>
+<li>The <code>mappify</code> HOC grabs a map object from the context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) and passes it as a prop to the wrapped component</li>
 <li>Commonly used in combination with the <code>MapProvider</code></li>
 </ul>
-<pre><code>import React, { Component } from &apos;react&apos;;
+<pre><code class="lang-javascript">import React, { Component } from &apos;react&apos;;
 
 import &apos;./App.css&apos;;
 import &apos;ol/ol.css&apos;;
 import &apos;antd/dist/antd.css&apos;;
 import &apos;./react-geo.css&apos;;
 
-import OlMap from &apos;ol/map&apos;;
-import OlView from &apos;ol/view&apos;;
-import OlLayerTile from &apos;ol/layer/tile&apos;;
-import OlSourceOsm from &apos;ol/source/osm&apos;;
+import OlMap from &apos;ol/Map&apos;;
+import OlView from &apos;ol/View&apos;;
+import OlLayerTile from &apos;ol/layer/Tile&apos;;
+import OlSourceOsm from &apos;ol/source/OSM&apos;;
 
 import {
   MapComponent,
@@ -466,7 +466,7 @@ import {
   mappify
 } from &apos;@terrestris/react-geo&apos;;
 
-const MappfiedNominatimSearch = mappify(NominatimSearch);
+const MappifiedNominatimSearch = mappify(NominatimSearch);
 const MappifiedMeasureButton = mappify(MeasureButton);
 const Map = mappify(MapComponent);
 
@@ -490,7 +490,7 @@ class App extends Component {
       &lt;div className=&quot;App&quot;&gt;
         &lt;MapProvider map={map}&gt;
           &lt;Titlebar className=&quot;titlebar&quot; tools={[
-              &lt;MappfiedNominatimSearch
+              &lt;MappifiedNominatimSearch
                 key=&quot;search&quot;
               /&gt;,
               &lt;MappifiedMeasureButton
@@ -513,6 +513,7 @@ class App extends Component {
 
 export default App;
 </code></pre>
+
                     
                     </section>
                 

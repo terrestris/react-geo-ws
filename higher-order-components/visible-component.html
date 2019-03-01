@@ -77,7 +77,7 @@
         data-chapter-title="VisibleComponent / `isVisibleComponent`"
         data-filepath="higher-order-components/visible-component.md"
         data-basepath=".."
-        data-revision="Wed Feb 13 2019 11:21:50 GMT+0000 (UTC)"
+        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -435,51 +435,52 @@
                     
                         <h1 id="visiblecomponent--isvisiblecomponent"><code>VisibleComponent</code> / <code>isVisibleComponent</code></h1>
 <ul>
-<li>Wrapped components will be checked against the activeModules array of the state: If the wrapped component (identified by it&apos;s name) is included in the state, it will be rendered, if not, it wont.</li>
+<li>Wrapped components will be checked against the activeModules array of the state: If the wrapped component (identified by it&apos;s name) is included in the state, it will be rendered, if not, it won&apos;t.</li>
 </ul>
-<pre><code>import React from &apos;react&apos;;
-import { render } from &apos;react-dom&apos;;
-import { Button } from &apos;antd&apos;;
-import { isVisibleComponent } from &apos;../../index.js&apos;;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { render } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-dom&apos;</span>;
+<span class="hljs-keyword">import</span> { Button } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+<span class="hljs-keyword">import</span> { isVisibleComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../index.js&apos;</span>;
 
-// Enhance (any) Component by wrapping it using isVisibleComponent().
-const VisibleButton = isVisibleComponent(Button);
+<span class="hljs-comment">// Enhance (any) Component by wrapping it using isVisibleComponent().</span>
+<span class="hljs-keyword">const</span> VisibleButton = isVisibleComponent(Button);
 
-// The activeModules is a whitelist of components (identified by it&apos;s names) to
-// render.
-const activeModules = [{
-  name: &apos;visibleButtonName&apos;
+<span class="hljs-comment">// The activeModules is a whitelist of components (identified by it&apos;s names) to</span>
+<span class="hljs-comment">// render.</span>
+<span class="hljs-keyword">const</span> activeModules = [{
+  name: <span class="hljs-string">&apos;visibleButtonName&apos;</span>
 }, {
-  name: &apos;anotherVisibleButtonName&apos;
+  name: <span class="hljs-string">&apos;anotherVisibleButtonName&apos;</span>
 }];
 
 render(
-  &lt;div&gt;
-    &lt;VisibleButton
-      name=&quot;visibleButtonName&quot;
-      activeModules={activeModules}
-      type=&quot;primary&quot;
-      shape=&quot;circle&quot;
-      icon=&quot;search&quot;
-    /&gt;
-    &lt;VisibleButton
-      name=&quot;notVisibleButtonName&quot;
-      activeModules={activeModules}
-      type=&quot;primary&quot;
-      shape=&quot;circle&quot;
-      icon=&quot;search&quot;
-    /&gt;
-    &lt;VisibleButton
-      name=&quot;anotherVisibleButtonName&quot;
-      activeModules={activeModules}
-      type=&quot;primary&quot;
-      shape=&quot;circle&quot;
-      icon=&quot;poweroff&quot;
-    /&gt;
-  &lt;/div&gt;,
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">VisibleButton</span>
+      <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;visibleButtonName&quot;</span>
+      <span class="hljs-attribute">activeModules</span>=<span class="hljs-value">{activeModules}</span>
+      <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;primary&quot;</span>
+      <span class="hljs-attribute">shape</span>=<span class="hljs-value">&quot;circle&quot;</span>
+      <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;search&quot;</span>
+    /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">VisibleButton</span>
+      <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;notVisibleButtonName&quot;</span>
+      <span class="hljs-attribute">activeModules</span>=<span class="hljs-value">{activeModules}</span>
+      <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;primary&quot;</span>
+      <span class="hljs-attribute">shape</span>=<span class="hljs-value">&quot;circle&quot;</span>
+      <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;search&quot;</span>
+    /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">VisibleButton</span>
+      <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;anotherVisibleButtonName&quot;</span>
+      <span class="hljs-attribute">activeModules</span>=<span class="hljs-value">{activeModules}</span>
+      <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;primary&quot;</span>
+      <span class="hljs-attribute">shape</span>=<span class="hljs-value">&quot;circle&quot;</span>
+      <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;poweroff&quot;</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
   document.getElementById(&apos;exampleContainer&apos;)
 );
-</code></pre>
+</span></code></pre>
+
                     
                     </section>
                 

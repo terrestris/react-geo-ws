@@ -79,7 +79,7 @@
         data-chapter-title="MapComponent"
         data-filepath="map-integration/map-component.md"
         data-basepath=".."
-        data-revision="Wed Feb 13 2019 11:21:50 GMT+0000 (UTC)"
+        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -437,7 +437,7 @@
                     
                         <h1 id="mapcomponent">MapComponent</h1>
 <p>Wrapper for an OpenLayers map. The <code>ol.map</code> is passed to the <code>MapComponent</code> as a prop.</p>
-<p><a href="../screenshots/map_component.png"><img src="../screenshots/map_component.png" alt=""></a></p>
+<p><a href="../screenshots/map_component.png"><img src="../screenshots/map_component.png" alt></a></p>
 <ul>
 <li>The map object can be shared across the whole application without passing it as prop to the whole render tree.</li>
 <li><p>The map can be created asynchronusly (using a <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>) so that every child of the MapProvider is just rendered when the map is ready.</p>
@@ -452,10 +452,10 @@
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
 
-<span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/map&apos;</span>;
-<span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/view&apos;</span>;
-<span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/tile&apos;</span>;
-<span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/osm&apos;</span>;
+<span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
+<span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
+<span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Tile&apos;</span>;
+<span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
 
 <span class="hljs-keyword">import</span> {
   MapComponent
