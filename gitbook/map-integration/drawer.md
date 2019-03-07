@@ -1,12 +1,12 @@
-# MeasureButton
+# Drawer
 
-* Button (toggle) to en/disable certain `ol.interaction`s and `ol.layer`s to measure a distance, a polygonal area or angles
+Drawers are a nice method to add features in a visual appealing way. In this case we make use of the [Drawer component](https://ant.design/components/drawer/) provided by antd. This can be opened and closed with the SimpleButton we created previously.
 
-* [Code](https://github.com/terrestris/react-geo/blob/master/src/Button/MeasureButton/MeasureButton.jsx)
+[![](../screenshots/drawer.png)](../screenshots/drawer.png)
 
-[![](../screenshots/measure_button.png)](../screenshots/measure_button.png)
+**Task:** Add a drawer with the title `react-geo-application` to the right side of the app and let it open and close via a SimpleButton.
 
-**Task:** Add a MeasureButton to the drawer.
+Your solution should look something like this:
 
 ```javascript
 import React, { Component } from 'react';
@@ -24,9 +24,7 @@ import OlSourceOsm from 'ol/source/OSM';
 import { Drawer } from 'antd';
 import {
   SimpleButton,
-  MapComponent,
-  NominatimSearch,
-  MeasureButton
+  MapComponent
 } from '@terrestris/react-geo';
 
 const layer = new OlLayerTile({
@@ -69,21 +67,7 @@ class App extends Component {
           onClose={this.toggleDrawer}
           visible={this.state.visible}
           mask={false}
-        >
-          <NominatimSearch
-            key="search"
-            map={map}
-          />
-          <MeasureButton
-            key="measureButton"
-            name="line"
-            map={map}
-            measureType="line"
-            icon="pencil"
-          >
-            Strecke messen
-          </MeasureButton>
-        </Drawer>
+        ></Drawer>
       </div>
     );
   }
