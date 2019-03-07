@@ -8,7 +8,7 @@
 * The `mappify` HOC grabs a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passes it as a prop to the wrapped component
 * Commonly used in combination with the `MapProvider`
 
-**Task:** Update you app by mappifying your components.
+**Task:** Update your app by mappifying your components.
 
 ```javascript
 import React, { Component } from 'react';
