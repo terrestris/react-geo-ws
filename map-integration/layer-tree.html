@@ -79,7 +79,7 @@
         data-chapter-title="LayerTree"
         data-filepath="map-integration/layer-tree.md"
         data-basepath=".."
-        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
+        data-revision="Fri Mar 08 2019 13:47:54 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -286,16 +286,16 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="map-integration/titlebar.html">
+        <li class="chapter " data-level="3.2" data-path="map-integration/drawer.html">
             
                 
-                    <a href="../map-integration/titlebar.html">
+                    <a href="../map-integration/drawer.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.</b>
                         
-                        Titlebar
+                        Drawer
                     </a>
             
             
@@ -439,15 +439,30 @@
 <ul>
 <li><p>Tree component displaying the map layers in a hierarchical way</p>
 </li>
-<li><p><a href="https://github.com/terrestris/react-geo/blob/master/src/LayerTree/LayerTree.jsx" target="_blank">Code</a></p>
+<li><p><a href="https://terrestris.github.io/react-geo/docs/latest/index.html#!/LayerTree" target="_blank">Documentation</a></p>
 </li>
 </ul>
-<p>Autoconfigured with the topmost layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) of passed map:</p>
+<p>Autoconfigured with the topmost layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) of passed map.</p>
+<p><a href="../screenshots/layer_tree.png"><img src="../screenshots/layer_tree.png" alt></a>
+<strong>Task:</strong> Add a basic LayerTree to the drawer.</p>
+<p><strong>Hint:</strong> To display the OSM Layer properly, add the <code>name</code> property to the <code>layer</code> variable.</p>
 <pre><code class="lang-javascript">&lt;LayerTree
   map={map}
 /&gt;
 </code></pre>
-<p>The layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) can be passed as a prop as well:</p>
+<p>The layer group (<a href="https://openlayers.org/en/latest/examples/layer-group.html" target="_blank">OpenLayers LayerGroup</a>) can be passed as a prop as well.</p>
+<p><a href="../screenshots/layer_tree_group.png"><img src="../screenshots/layer_tree_group.png" alt></a></p>
+<p><strong>Task:</strong> Add the layers <em>Food insecurity layer</em> and <em>World borders layer</em> as a layer group to the LayerTree.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Create the layer group for the two layers<ul>
+<li>Food insecurity layer <code>&apos;https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure&apos;</code></li>
+<li>World borders layer <code>&apos;https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure&apos;</code></li>
+</ul>
+</li>
+<li>Add the layer group to the layers of the map</li>
+<li>Extend the LayerTree component with the property <code>layerGroup</code></li>
+</ol>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
   name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
   layers: [
@@ -471,13 +486,127 @@
     })
   ]
 });
+</code></pre>
+<pre><code class="lang-javascript">&lt;LayerTree
+  layerGroup={layerGroup}
+  map={map}
+/&gt;
+</code></pre>
+<p><strong>Complete Example:</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">LayerTree</span>
-  <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
-  <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
-/&gt;</span>
-</span></code></pre>
-<p><a href="https://terrestris.github.io/react-geo/examples/LayerTree/LayerTree.example.html" target="_blank">Further examples </a></p>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
+
+<span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
+<span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
+<span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Tile&apos;</span>;
+<span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
+<span class="hljs-keyword">import</span> OlSourceTileJson <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/TileJSON&apos;</span>;
+<span class="hljs-keyword">import</span> OlLayerGroup <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Group&apos;</span>;
+
+<span class="hljs-keyword">import</span> { Drawer } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+<span class="hljs-keyword">import</span> {
+  SimpleButton,
+  MapComponent,
+  NominatimSearch,
+  MeasureButton,
+  LayerTree
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
+
+<span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> OlLayerTile({
+  source: <span class="hljs-keyword">new</span> OlSourceOsm(),
+  name: <span class="hljs-string">&apos;OSM&apos;</span>
+});
+
+<span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
+  name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
+  layers: [
+    <span class="hljs-keyword">new</span> OlLayerTile({
+      name: <span class="hljs-string">&apos;Food insecurity layer&apos;</span>,
+      minResolution: <span class="hljs-number">200</span>,
+      maxResolution: <span class="hljs-number">2000</span>,
+      source: <span class="hljs-keyword">new</span> OlSourceTileJson({
+        url: <span class="hljs-string">&apos;https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure&apos;</span>,
+        crossOrigin: <span class="hljs-string">&apos;anonymous&apos;</span>
+      })
+    }),
+    <span class="hljs-keyword">new</span> OlLayerTile({
+      name: <span class="hljs-string">&apos;World borders layer&apos;</span>,
+      minResolution: <span class="hljs-number">2000</span>,
+      maxResolution: <span class="hljs-number">20000</span>,
+      source: <span class="hljs-keyword">new</span> OlSourceTileJson({
+        url: <span class="hljs-string">&apos;https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure&apos;</span>,
+        crossOrigin: <span class="hljs-string">&apos;anonymous&apos;</span>
+      })
+    })
+  ]
+});
+
+<span class="hljs-keyword">const</span> center = [ <span class="hljs-number">788453.4890155146</span>, <span class="hljs-number">6573085.729161344</span> ];
+
+<span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> OlMap({
+  view: <span class="hljs-keyword">new</span> OlView({
+    center: center,
+    zoom: <span class="hljs-number">16</span>,
+  }),
+  layers: [layer, layerGroup]
+});
+
+map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state = {visible: <span class="hljs-literal">false</span>};
+
+  toggleDrawer = () =&gt; {
+    <span class="hljs-keyword">this</span>.setState({visible: !<span class="hljs-keyword">this</span>.state.visible});
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">MapComponent</span>
+          <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
+          <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
+          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggleDrawer}</span>
+          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
+          <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
+          <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
+          <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{this.toggleDrawer}</span>
+          <span class="hljs-attribute">visible</span>=<span class="hljs-value">{this.state.visible}</span>
+          <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearch</span>
+            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
+            <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">MeasureButton</span>
+            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
+            <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
+            <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+            <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
+            <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;pencil&quot;</span>
+          &gt;</span>
+            Strecke messen
+          <span class="hljs-tag">&lt;/<span class="hljs-title">MeasureButton</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">LayerTree</span>
+            <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+            <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>;
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
+</code></pre>
 
                     
                     </section>

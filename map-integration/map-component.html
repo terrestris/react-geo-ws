@@ -63,7 +63,7 @@
         
     
     
-    <link rel="next" href="../map-integration/titlebar.html" />
+    <link rel="next" href="../map-integration/drawer.html" />
     
     
     <link rel="prev" href="../map-integration/index.html" />
@@ -79,7 +79,7 @@
         data-chapter-title="MapComponent"
         data-filepath="map-integration/map-component.md"
         data-basepath=".."
-        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
+        data-revision="Fri Mar 08 2019 13:47:54 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -286,16 +286,16 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="map-integration/titlebar.html">
+        <li class="chapter " data-level="3.2" data-path="map-integration/drawer.html">
             
                 
-                    <a href="../map-integration/titlebar.html">
+                    <a href="../map-integration/drawer.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.</b>
                         
-                        Titlebar
+                        Drawer
                     </a>
             
             
@@ -442,9 +442,10 @@
 <li>The map object can be shared across the whole application without passing it as prop to the whole render tree.</li>
 <li><p>The map can be created asynchronusly (using a <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>) so that every child of the MapProvider is just rendered when the map is ready.</p>
 </li>
-<li><p><a href="https://github.com/terrestris/react-geo/blob/master/src/Map/MapComponent/MapComponent.jsx" target="_blank">Code</a></p>
+<li><p><a href="https://terrestris.github.io/react-geo/docs/latest/index.html#!/MapComponent" target="_blank">Documentation</a></p>
 </li>
 </ul>
+<p><strong>Task:</strong> Add a map to your application. Use openstreetmap as tile layer.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
@@ -476,6 +477,8 @@
   layers: [layer]
 });
 
+map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize);
+
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
     <span class="hljs-keyword">return</span> (
@@ -491,7 +494,9 @@
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
 </code></pre>
 <p>Beside the OpenLayers style the app needs its own stylesheet, e.g. to size the map.</p>
-<pre><code class="lang-css"><span class="hljs-id">#map</span> <span class="hljs-rules">{
+<pre><code class="lang-css"><span class="hljs-tag">html</span>, <span class="hljs-tag">body</span>, <span class="hljs-id">#root</span>, <span class="hljs-class">.App</span>, <span class="hljs-id">#map</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
   <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
   <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
 }</span>
@@ -509,7 +514,7 @@
         <a href="../map-integration/index.html" class="navigation navigation-prev " aria-label="Previous page: react-geo components"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../map-integration/titlebar.html" class="navigation navigation-next " aria-label="Next page: Titlebar"><i class="fa fa-angle-right"></i></a>
+        <a href="../map-integration/drawer.html" class="navigation navigation-next " aria-label="Next page: Drawer"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -79,7 +79,7 @@
         data-chapter-title="Include a react-geo component"
         data-filepath="first-steps/erste-komponente.md"
         data-basepath=".."
-        data-revision="Fri Mar 01 2019 15:34:31 GMT+0000 (UTC)"
+        data-revision="Fri Mar 08 2019 13:47:54 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -286,16 +286,16 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="map-integration/titlebar.html">
+        <li class="chapter " data-level="3.2" data-path="map-integration/drawer.html">
             
                 
-                    <a href="../map-integration/titlebar.html">
+                    <a href="../map-integration/drawer.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.</b>
                         
-                        Titlebar
+                        Drawer
                     </a>
             
             
@@ -438,7 +438,7 @@
                         <h1 id="include-a-reactgeo-component">Include a react-geo component</h1>
 <p>Now that we have <code>react-geo</code> installed, we can use it&apos;s components in the
 <em>my-app</em> application. For demonstration purposes we&apos;ll now
-add a <a href="https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html" target="_blank">simple button</a>
+add a <a href="https://terrestris.github.io/react-geo/docs/latest/index.html#!/SimpleButton" target="_blank">simple button</a>
 to the application.</p>
 <p>Please open a text editor (if not already done) and open the file <code>App.js</code> from
 the <code>src</code> directory of your <em>my-app</em> application. Now import the
@@ -476,6 +476,13 @@ once it has been clicked by implementing a <code>onClick</code> callback functio
 </code></pre>
 <p>Save the changes and test the results by clicking on the button. You should now
 see a simple alert message with a <em>Hello World!</em> message.</p>
+<p>We can also replace the text of the button with an icon. Simply remove the <em>Hello world</em> text and add the <code>icon</code> property with the value <code>&quot;bars&quot;</code> to the component.</p>
+<pre><code class="lang-javascript">&lt;SimpleButton
+  onClick={() =&gt; {alert(<span class="hljs-string">&apos;Hello World!&apos;</span>);}}
+  icon=<span class="hljs-string">&quot;bars&quot;</span>
+/&gt;
+</code></pre>
+<p>Voil&#xE1;! You added a nice menu button to your app!</p>
 <p>Your final solution should look like the following snippet:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./logo.svg&apos;</span>;
@@ -497,11 +504,10 @@ see a simple alert message with a <em>Hello World!</em> message.</p>
           <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-title&quot;</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-intro&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-              <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
-            &gt;
-              Hello World!
-            <span class="hljs-tag">&lt;/<span class="hljs-title">SimpleButton</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
+            <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
+            icon=&quot;bars&quot;
+          /&gt;
         <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     )</span>;
