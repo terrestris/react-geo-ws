@@ -2,7 +2,7 @@
 
 * Button (toggle) to en/disable certain `ol.interaction`s and `ol.layer`s to measure a distance, a polygonal area or angles
 
-* [Code](https://github.com/terrestris/react-geo/blob/master/src/Button/MeasureButton/MeasureButton.jsx)
+* [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/MeasureButton)
 
 [![](../screenshots/measure_button.png)](../screenshots/measure_button.png)
 

@@ -2,7 +2,7 @@
 
 NominatimSearch is a component that provides a search field querying [nominatim search](http://wiki.openstreetmap.org/wiki/Nominatim) as geocoder. However, it is not limited to Nominatim search, see props `nominatimBaseUrl`.
 
-* [Code](https://github.com/terrestris/react-geo/blob/master/src/Field/NominatimSearch/NominatimSearch.jsx)
+* [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/NominatimSearch)
 
 [![](../screenshots/nominatim_search2.png)](../screenshots/nominatim_search2.png)
 
