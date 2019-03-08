@@ -1,11 +1,12 @@
 # NominatimSearch
 
-* Component that provides a search field querying [nominatim search](http://wiki.openstreetmap.org/wiki/Nominatim) as geocoder
-  * not limited to Nominatim search, see props `nominatimBaseUrl`
+NominatimSearch is a component that provides a search field querying [nominatim search](http://wiki.openstreetmap.org/wiki/Nominatim) as geocoder. However, it is not limited to Nominatim search, see props `nominatimBaseUrl`.
 
-* [Code](https://github.com/terrestris/react-geo/blob/master/src/Field/NominatimSearch/NominatimSearch.jsx)
+* [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/NominatimSearch)
 
-[![](../screenshots/nominatim_search.png)](../screenshots/nominatim_search.png)
+[![](../screenshots/nominatim_search2.png)](../screenshots/nominatim_search2.png)
+
+**Task:** Add the NominatimSearch component to the drawer.
 
 ```javascript
 import React, { Component } from 'react';
@@ -20,12 +21,12 @@ import OlView from 'ol/View';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceOsm from 'ol/source/OSM';
 
+import { Drawer } from 'antd';
 import {
+  SimpleButton,
   MapComponent,
-  NominatimSearch,
-  Titlebar
+  NominatimSearch
 } from '@terrestris/react-geo';
-
 
 const layer = new OlLayerTile({
   source: new OlSourceOsm()
@@ -41,21 +42,38 @@ const map = new OlMap({
   layers: [layer]
 });
 
+map.on('postcompose', map.updateSize);
+
 class App extends Component {
+  state = {visible: false};
+
+  toggleDrawer = () => {
+    this.setState({visible: !this.state.visible});
+  }
+
   render() {
     return (
       <div className="App">
-        <Titlebar className="titlebar" tools={[
-            <NominatimSearch
-              key="search"
-              map={map}
-            />
-          ]}>
-          react-geo-app
-        </Titlebar>
         <MapComponent
           map={map}
         />
+        <SimpleButton
+          style={{position: 'fixed', top: '30px', right: '30px'}}
+          onClick={this.toggleDrawer}
+          icon="bars"
+        />
+        <Drawer
+          title="react-geo-application"
+          placement="right"
+          onClose={this.toggleDrawer}
+          visible={this.state.visible}
+          mask={false}
+        >
+          <NominatimSearch
+            key="search"
+            map={map}
+          />
+        </Drawer>
       </div>
     );
   }

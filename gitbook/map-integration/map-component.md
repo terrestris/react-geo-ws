@@ -7,7 +7,9 @@ Wrapper for an OpenLayers map. The `ol.map` is passed to the `MapComponent` as a
 * The map object can be shared across the whole application without passing it as prop to the whole render tree.
 * The map can be created asynchronusly (using a [Promise](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)) so that every child of the MapProvider is just rendered when the map is ready.
 
-* [Code](https://github.com/terrestris/react-geo/blob/master/src/Map/MapComponent/MapComponent.jsx)
+* [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/MapComponent)
+
+**Task:** Add a map to your application. Use openstreetmap as tile layer.
 
 ```javascript
 import React, { Component } from 'react';
@@ -41,6 +43,8 @@ const map = new OlMap({
   layers: [layer]
 });
 
+map.on('postcompose', map.updateSize);
+
 class App extends Component {
   render() {
     return (
@@ -59,7 +63,9 @@ export default App;
 
 Beside the OpenLayers style the app needs its own stylesheet, e.g. to size the map.
 ```css
-#map {
+html, body, #root, .App, #map {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
 }

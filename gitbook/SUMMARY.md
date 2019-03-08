@@ -12,7 +12,7 @@
   * [Include a react-geo component](first-steps/erste-komponente.md)
 * [react-geo components](map-integration/index.md)
   * [MapComponent](map-integration/map-component.md)
-  * [Titlebar](map-integration/titlebar.md)
+  * [Drawer](map-integration/drawer.md)
   * [NominatimSearch](map-integration/nominatim-search.md)
   * [MeasureButton](map-integration/measure-button.md)
   * [LayerTree](map-integration/layer-tree.md)

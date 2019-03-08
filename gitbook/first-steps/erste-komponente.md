@@ -2,7 +2,7 @@
 
 Now that we have `react-geo` installed, we can use it's components in the
 *{{ book.reactAppName }}* application. For demonstration purposes we'll now
-add a [simple button](https://terrestris.github.io/react-geo/examples/Button/SimpleButton/SimpleButton.example.html)
+add a [simple button](https://terrestris.github.io/react-geo/docs/latest/index.html#!/SimpleButton)
 to the application.
 
 Please open a text editor (if not already done) and open the file `App.js` from
@@ -57,6 +57,17 @@ once it has been clicked by implementing a `onClick` callback function:
 Save the changes and test the results by clicking on the button. You should now
 see a simple alert message with a *Hello World!* message.
 
+We can also replace the text of the button with an icon. Simply remove the *Hello world* text and add the `icon` property with the value `"bars"` to the component.
+
+```javascript
+<SimpleButton
+  onClick={() => {alert('Hello World!');}}
+  icon="bars"
+/>
+```
+
+Voilá! You added a nice menu button to your app!
+
 Your final solution should look like the following snippet:
 
 ```javascript
@@ -80,11 +91,10 @@ class App extends Component {
           <h1 className="App-title">Hello World!</h1>
         </header>
         <p className="App-intro">
-            <SimpleButton
-              onClick={() => {alert('Hello World!');}}
-            >
-              Hello World!
-            </SimpleButton>
+          <SimpleButton
+            onClick={() => {alert('Hello World!');}}
+            icon="bars"
+          />
         </p>
       </div>
     );
