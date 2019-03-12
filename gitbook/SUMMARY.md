@@ -18,4 +18,4 @@
   * [LayerTree](map-integration/layer-tree.md)
 * [Higher order components / Provider](higher-order-components/general.md)
   * [MapProvider / `mappify`](higher-order-components/mappify.md)
-  * [VisibleComponent / `isVisibleComponent`](higher-order-components/visible-component.md)
+  * [DropTargetMap/ `onDropAware`](higher-order-components/drop-target-map.md)
