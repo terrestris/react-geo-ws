@@ -131,4 +131,4 @@ class App extends Component {
 export default App;
 ```
 
-This presentation is licensed under the [CC BY-SA](http://creativecommons.org/licenses/by-sa/2.0/) license. In case of questions, feel free to contact us via GitHub [@terrestris](https://github.com/terrestris) or telephone 0228 – 962 899 51.
+This workshop is licensed under the [CC BY-SA](http://creativecommons.org/licenses/by-sa/2.0/) license. In case of questions, feel free to contact us via GitHub [@terrestris](https://github.com/terrestris) or telephone 0228 – 962 899 51.
