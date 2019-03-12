@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>NominatimSearch | react-geo - mapping mit React</title>
+        <title>Imprint | react-geo - mapping mit React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.9">
@@ -63,10 +63,8 @@
         
     
     
-    <link rel="next" href="../map-integration/measure-button.html" />
     
-    
-    <link rel="prev" href="../map-integration/drawer.html" />
+    <link rel="prev" href="../summary/summary.html" />
     
 
         
@@ -75,9 +73,9 @@
         
         
     <div class="book"
-        data-level="3.3"
-        data-chapter-title="NominatimSearch"
-        data-filepath="map-integration/nominatim-search.md"
+        data-level="6"
+        data-chapter-title="Imprint"
+        data-filepath="imprint/imprint.md"
         data-basepath=".."
         data-revision="Tue Mar 12 2019 11:01:05 GMT+0000 (UTC)"
         data-innerlanguage="">
@@ -301,7 +299,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3" data-path="map-integration/nominatim-search.html">
+        <li class="chapter " data-level="3.3" data-path="map-integration/nominatim-search.html">
             
                 
                     <a href="../map-integration/nominatim-search.html">
@@ -417,7 +415,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6" data-path="imprint/imprint.html">
+        <li class="chapter active" data-level="6" data-path="imprint/imprint.html">
             
                 
                     <a href="../imprint/imprint.html">
@@ -465,85 +463,19 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="nominatimsearch">NominatimSearch</h1>
-<p>NominatimSearch is a component that provides a search field querying <a href="http://wiki.openstreetmap.org/wiki/Nominatim" target="_blank">nominatim search</a> as geocoder. However, it is not limited to Nominatim search, see props <code>nominatimBaseUrl</code>.</p>
+                        <h1 id="imprint">Imprint</h1>
+<p>This workshop is licensed under the <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC BY-SA</a> license. In case of questions, feel free to contact us via GitHub <a href="https://github.com/terrestris" target="_blank">@terrestris</a>, e-mail <a href="mailto:info@terrestris.de" target="_blank">info@terrestris.de</a> or telephone 0228 &#x2013; 962 899 51.</p>
+<h2 id="authors">Authors</h2>
 <ul>
-<li><a href="https://terrestris.github.io/react-geo/docs/latest/index.html#!/NominatimSearch" target="_blank">Documentation</a></li>
+<li><p>Andr&#xE9; Henn (<a href="mailto:henn@terrestris.de" target="_blank">henn@terrestris.de</a>)</p>
+</li>
+<li><p>Daniel Koch (<a href="mailto:koch@terrestris.de" target="_blank">koch@terrestris.de</a>)</p>
+</li>
+<li><p>Kai Volland (<a href="mailto:volland@terrestris.de" target="_blank">volland@terrestris.de</a>)</p>
+</li>
+<li><p>Jan Suleiman (<a href="mailto:suleiman@terrestris.de" target="_blank">suleiman@terrestris.de</a>)</p>
+</li>
 </ul>
-<p><a href="../screenshots/nominatim_search2.png"><img src="../screenshots/nominatim_search2.png" alt></a></p>
-<p><strong>Task:</strong> Add the NominatimSearch component to the drawer.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
-
-<span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
-<span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
-<span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Tile&apos;</span>;
-<span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
-
-<span class="hljs-keyword">import</span> { Drawer } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
-<span class="hljs-keyword">import</span> {
-  SimpleButton,
-  MapComponent,
-  NominatimSearch
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
-
-<span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> OlLayerTile({
-  source: <span class="hljs-keyword">new</span> OlSourceOsm()
-});
-
-<span class="hljs-keyword">const</span> center = [ <span class="hljs-number">788453.4890155146</span>, <span class="hljs-number">6573085.729161344</span> ];
-
-<span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> OlMap({
-  view: <span class="hljs-keyword">new</span> OlView({
-    center: center,
-    zoom: <span class="hljs-number">16</span>,
-  }),
-  layers: [layer]
-});
-
-map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize);
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  state = {visible: <span class="hljs-literal">false</span>};
-
-  toggleDrawer = () =&gt; {
-    <span class="hljs-keyword">this</span>.setState({visible: !<span class="hljs-keyword">this</span>.state.visible});
-  }
-
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">MapComponent</span>
-          <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
-        /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-          <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
-          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
-        /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
-          <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
-          <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
-          <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-          <span class="hljs-attribute">visible</span>=<span class="hljs-value">{this.state.visible}</span>
-          <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearch</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
-            <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    )</span>;
-  }
-}
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
-</code></pre>
 
                     
                     </section>
@@ -554,10 +486,8 @@ map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize)
         </div>
 
         
-        <a href="../map-integration/drawer.html" class="navigation navigation-prev " aria-label="Previous page: Drawer"><i class="fa fa-angle-left"></i></a>
+        <a href="../summary/summary.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Summary"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../map-integration/measure-button.html" class="navigation navigation-next " aria-label="Next page: MeasureButton"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
