@@ -20,3 +20,4 @@
   * [MapProvider / `mappify`](higher-order-components/mappify.md)
   * [DropTargetMap/ `onDropAware`](higher-order-components/drop-target-map.md)
 * [Summary](summary/summary.md)
+* [Imprint](imprint/imprint.md)
