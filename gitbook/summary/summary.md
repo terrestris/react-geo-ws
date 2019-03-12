@@ -1,12 +1,14 @@
-# `DropTargetMap` / `onDropAware`
+# Summary
 
-Wrapped map allows dropping in data such as Shapefiles or GeoJSONs. The wrapped map component needs to be mappified in order to access the map.
+Congratulations! You finished the react-geo-workshop!
 
-- [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/DropTargetMap)
+In this workshop you learned to setup your first react-based application. Through the addition of different react-geo components such as `MapComponent`, `NominatimSearch` and `MeasureButton` you made the step from a simple `Hello World` to a fully fledged map application.
 
-[![](../screenshots/on_drop_aware.png)](../screenshots/on_drop_aware.png)
+Your complete application should look something like this:
 
-**Task:** Wrap the map component with `onDropAware`. An example GeoJSON for testing can be found [here](../materials/bonn_bars.geojson).
+[![](../screenshots/summary.png)](../screenshots/summary.png)
+
+And here is the complete source code:
 
 ```javascript
 import React, { Component } from 'react';
@@ -128,3 +130,5 @@ class App extends Component {
 
 export default App;
 ```
+
+This presentation is licensed under the [CC BY-SA](http://creativecommons.org/licenses/by-sa/2.0/) license. In case of questions, feel free to contact us via GitHub [@terrestris](https://github.com/terrestris) or telephone 0228 – 962 899 51.

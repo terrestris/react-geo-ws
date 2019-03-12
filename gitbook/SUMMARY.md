@@ -19,3 +19,4 @@
 * [Higher order components / Provider](higher-order-components/general.md)
   * [MapProvider / `mappify`](higher-order-components/mappify.md)
   * [DropTargetMap/ `onDropAware`](higher-order-components/drop-target-map.md)
+* [Summary](summary/summary.md)
