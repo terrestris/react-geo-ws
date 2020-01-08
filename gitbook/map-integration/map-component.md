@@ -12,17 +12,17 @@ Wrapper for an OpenLayers map. The `ol.map` is passed to the `MapComponent` as a
 **Task:** Add a map to your application. Use openstreetmap as tile layer.
 
 ```javascript
-import React, { Component } from 'react';
-
-import './App.css';
-import 'ol/ol.css';
-import 'antd/dist/antd.css';
-import './react-geo.css';
+import React from 'react';
 
 import OlMap from 'ol/Map';
 import OlView from 'ol/View';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceOsm from 'ol/source/OSM';
+
+import './App.css';
+import 'ol/ol.css';
+import 'antd/dist/antd.css';
+import './react-geo.css';
 
 import {
   MapComponent
@@ -34,7 +34,6 @@ const layer = new OlLayerTile({
 
 const center = [ 788453.4890155146, 6573085.729161344 ];
 
-// create a new instance of ol.map in ES6 syntax
 const map = new OlMap({
   view: new OlView({
     center: center,
@@ -43,22 +42,17 @@ const map = new OlMap({
   layers: [layer]
 });
 
-map.on('postcompose', map.updateSize);
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MapComponent
-          map={map}
-        />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <MapComponent
+        map={map}
+      />
+    </div>
+  );
 }
 
 export default App;
-
 ```
 
 Beside the OpenLayers style the app needs its own stylesheet, e.g. to size the map.

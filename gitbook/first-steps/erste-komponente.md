@@ -71,9 +71,8 @@ Voilá! You added a nice menu button to your app!
 Your final solution should look like the following snippet:
 
 ```javascript
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
-
 import './App.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
@@ -82,22 +81,22 @@ import {
   SimpleButton
 } from '@terrestris/react-geo';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Hello World!</h1>
-        </header>
-        <p className="App-intro">
-          <SimpleButton
-            onClick={() => {alert('Hello World!');}}
-            icon="bars"
-          />
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
         </p>
-      </div>
-    );
-  }
+        <SimpleButton
+          onClick={() => {alert('Hello World!');}}
+          icon="bars"
+        />
+      </header>
+    </div>
+  );
 }
+
+export default App;
 ```
