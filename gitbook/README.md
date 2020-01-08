@@ -12,15 +12,15 @@ Welcome to the workshop **{{ book.workshopName }}**. This workshop is designed t
 
 The following instructions and exercises assume that you have some requirements fulfilled on your local machine. Please check if you have the consequent packages installed:
   * A suitable text editor, e.g. the lightweight [Atom](https://atom.io/) editor.
-  * [NodeJS](https://nodejs.org/en/) in version 8 or higher.
+  * [NodeJS](https://nodejs.org/en/) in version 10 or higher.
 
 All set? Then, lets' go!
 
 ## Overview
 
-This workshop is presented as a set of modules. In each module you will perform 
-tasks designed to achieve a specific goal for that module. Each module builds upon 
-lessons learned in previous modules and is designed to iteratively build up your 
+This workshop is presented as a set of modules. In each module you will perform
+tasks designed to achieve a specific goal for that module. Each module builds upon
+lessons learned in previous modules and is designed to iteratively build up your
 knowledge base.
 
 * [Basics](./introduction/README.md) - Dive into the basics of EcmaScript 6, React and npm.
