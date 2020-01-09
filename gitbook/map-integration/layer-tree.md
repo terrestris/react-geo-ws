@@ -25,7 +25,7 @@ The layer group ([OpenLayers LayerGroup](https://openlayers.org/en/latest/exampl
 **Task:** Add the layers _Food insecurity layer_ and _World borders layer_ as a layer group to the LayerTree.
 
 **Steps:**
-1. Create the layer group for the two layers
+1. Create the layer group for the three layers
   - SRTM30-Contour `https://ows.terrestris.de/osm/service`
   - OSM-Overlay-WMS `https://ows.terrestris.de/osm/service`
   - OSM-WMS (from the previous examples)
