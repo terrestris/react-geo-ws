@@ -1,6 +1,6 @@
 # react-geo components
 
-Currently (v5.6.2), react-geo provides a bunch of components that can be used for building Web-GIS applications.
+Currently ({{ book.reactGeoVersion }}), react-geo provides a bunch of components that can be used for building Web-GIS applications.
 For example:
 
 - Buttons (e.g. to en/disable map interactions)

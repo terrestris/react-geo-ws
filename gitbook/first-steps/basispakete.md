@@ -10,7 +10,7 @@ To add the dependency `react-geo` please navigate to your project's folder
 (if not already done) and execute:
 
 ```
-npm i @terrestris/react-geo --save
+npm i @terrestris/react-geo
 ```
 
 This will add the latest version of `react-geo` to your local `package.json` file

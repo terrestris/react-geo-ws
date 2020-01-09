@@ -9,12 +9,7 @@ NominatimSearch is a component that provides a search field querying [nominatim 
 **Task:** Add the NominatimSearch component to the drawer.
 
 ```javascript
-import React, { Component } from 'react';
-
-import './App.css';
-import 'ol/ol.css';
-import 'antd/dist/antd.css';
-import './react-geo.css';
+import React, { useState } from 'react';
 
 import OlMap from 'ol/Map';
 import OlView from 'ol/View';
@@ -22,11 +17,17 @@ import OlLayerTile from 'ol/layer/Tile';
 import OlSourceOsm from 'ol/source/OSM';
 
 import { Drawer } from 'antd';
+
 import {
   SimpleButton,
   MapComponent,
   NominatimSearch
 } from '@terrestris/react-geo';
+
+import './App.css';
+import 'ol/ol.css';
+import 'antd/dist/antd.css';
+import './react-geo.css';
 
 const layer = new OlLayerTile({
   source: new OlSourceOsm()
@@ -42,41 +43,37 @@ const map = new OlMap({
   layers: [layer]
 });
 
-map.on('postcompose', map.updateSize);
+function App() {
+  const [visible, setVisible] = useState(false);
 
-class App extends Component {
-  state = {visible: false};
-
-  toggleDrawer = () => {
-    this.setState({visible: !this.state.visible});
+  const toggleDrawer = () => {
+    setVisible(!visible);
   }
 
-  render() {
-    return (
-      <div className="App">
-        <MapComponent
+  return (
+    <div className="App">
+      <MapComponent
+        map={map}
+      />
+      <SimpleButton
+        style={{position: 'fixed', top: '30px', right: '30px'}}
+        onClick={toggleDrawer}
+        icon="bars"
+      />
+      <Drawer
+        title="react-geo-application"
+        placement="right"
+        onClose={toggleDrawer}
+        visible={visible}
+        mask={false}
+      >
+        <NominatimSearch
+          key="search"
           map={map}
         />
-        <SimpleButton
-          style={{position: 'fixed', top: '30px', right: '30px'}}
-          onClick={this.toggleDrawer}
-          icon="bars"
-        />
-        <Drawer
-          title="react-geo-application"
-          placement="right"
-          onClose={this.toggleDrawer}
-          visible={this.state.visible}
-          mask={false}
-        >
-          <NominatimSearch
-            key="search"
-            map={map}
-          />
-        </Drawer>
-      </div>
-    );
-  }
+      </Drawer>
+    </div>
+  );
 }
 
 export default App;
