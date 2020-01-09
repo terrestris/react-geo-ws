@@ -79,7 +79,7 @@
         data-chapter-title="Development notes"
         data-filepath="first-steps/webpack-hotreload.md"
         data-basepath=".."
-        data-revision="Mon Jan 06 2020 09:19:16 GMT+0000 (UTC)"
+        data-revision="Thu Jan 09 2020 08:47:44 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -468,27 +468,32 @@
                         <h1 id="development-notes">Development notes</h1>
 <p><code>create-react-app</code> includes a <a href="https://github.com/webpack/webpack" target="_blank">webpack</a> development server. This server allows you to &apos;hot deploy&apos; your edited code. This means that your code changes will be immediatly visible in the browser.</p>
 <ul>
-<li>Edit src/App.js to modify the example&#x2026; and let the magic happen!</li>
+<li>Edit <code>src/App.js</code> to modify the example&#x2026; and let the magic happen!</li>
 </ul>
 <p><a href="../screenshots/hallo_welt.png"><img src="../screenshots/hallo_welt.png" alt></a></p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./logo.svg&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-header&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">{logo}</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-logo&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;logo&quot;</span> /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-title&quot;</span>&gt;</span>Hallo Welt!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-intro&quot;</span>&gt;</span>
-            Hallo Welt!
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-header&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">{logo}</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-logo&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;logo&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+          Edit <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>src/App.js<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> and save to reload.
         <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    )</span>;
-  }
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span>
+          <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-link&quot;</span>
+          <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;https://reactjs.org&quot;</span>
+          <span class="hljs-attribute">target</span>=<span class="hljs-value">&quot;_blank&quot;</span>
+          <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;noopener noreferrer&quot;</span>
+        &gt;</span>
+          Hallo Welt!
+        <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  )</span>;
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;

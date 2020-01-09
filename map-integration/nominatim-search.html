@@ -79,7 +79,7 @@
         data-chapter-title="NominatimSearch"
         data-filepath="map-integration/nominatim-search.md"
         data-basepath=".."
-        data-revision="Mon Jan 06 2020 09:19:16 GMT+0000 (UTC)"
+        data-revision="Thu Jan 09 2020 08:47:44 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -472,12 +472,7 @@
 </ul>
 <p><a href="../screenshots/nominatim_search2.png"><img src="../screenshots/nominatim_search2.png" alt></a></p>
 <p><strong>Task:</strong> Add the NominatimSearch component to the drawer.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 
 <span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
 <span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
@@ -485,11 +480,17 @@
 <span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
 
 <span class="hljs-keyword">import</span> { Drawer } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+
 <span class="hljs-keyword">import</span> {
   SimpleButton,
   MapComponent,
   NominatimSearch
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
 
 <span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> OlLayerTile({
   source: <span class="hljs-keyword">new</span> OlSourceOsm()
@@ -505,41 +506,37 @@
   layers: [layer]
 });
 
-map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [visible, setVisible] = useState(<span class="hljs-literal">false</span>);
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  state = {visible: <span class="hljs-literal">false</span>};
-
-  toggleDrawer = () =&gt; {
-    <span class="hljs-keyword">this</span>.setState({visible: !<span class="hljs-keyword">this</span>.state.visible});
+  <span class="hljs-keyword">const</span> toggleDrawer = () =&gt; {
+    setVisible(!visible);
   }
 
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">MapComponent</span>
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">MapComponent</span>
+        <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+      /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
+        <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
+        <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{toggleDrawer}</span>
+        <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
+      /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
+        <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
+        <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
+        <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{toggleDrawer}</span>
+        <span class="hljs-attribute">visible</span>=<span class="hljs-value">{visible}</span>
+        <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearch</span>
+          <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
           <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
         /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-          <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
-          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
-        /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
-          <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
-          <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
-          <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-          <span class="hljs-attribute">visible</span>=<span class="hljs-value">{this.state.visible}</span>
-          <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearch</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
-            <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    )</span>;
-  }
+      <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  )</span>;
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;

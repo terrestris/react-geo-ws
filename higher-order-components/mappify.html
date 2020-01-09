@@ -79,7 +79,7 @@
         data-chapter-title="MapProvider / `mappify`"
         data-filepath="higher-order-components/mappify.md"
         data-basepath=".."
-        data-revision="Mon Jan 06 2020 09:19:16 GMT+0000 (UTC)"
+        data-revision="Thu Jan 09 2020 08:47:44 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -476,21 +476,17 @@
 <li>Commonly used in combination with the <code>MapProvider</code></li>
 </ul>
 <p><strong>Task:</strong> Update your app by mappifying your components.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 
 <span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
 <span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
 <span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Tile&apos;</span>;
 <span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
-<span class="hljs-keyword">import</span> OlSourceTileJson <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/TileJSON&apos;</span>;
+<span class="hljs-keyword">import</span> OlSourceTileWMS <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/TileWMS&apos;</span>;
 <span class="hljs-keyword">import</span> OlLayerGroup <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Group&apos;</span>;
 
 <span class="hljs-keyword">import</span> { Drawer } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+
 <span class="hljs-keyword">import</span> {
   SimpleButton,
   MapComponent,
@@ -501,35 +497,43 @@
   mappify
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
 
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
+
 <span class="hljs-keyword">const</span> MappifiedNominatimSearch = mappify(NominatimSearch);
 <span class="hljs-keyword">const</span> MappifiedMeasureButton = mappify(MeasureButton);
 <span class="hljs-keyword">const</span> MappifiedLayerTree = mappify(LayerTree);
 <span class="hljs-keyword">const</span> <span class="hljs-built_in">Map</span> = mappify(MapComponent);
 
-<span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> OlLayerTile({
-  source: <span class="hljs-keyword">new</span> OlSourceOsm(),
-  name: <span class="hljs-string">&apos;OSM&apos;</span>
-});
-
 <span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
   name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
   layers: [
     <span class="hljs-keyword">new</span> OlLayerTile({
-      name: <span class="hljs-string">&apos;Food insecurity layer&apos;</span>,
-      minResolution: <span class="hljs-number">200</span>,
-      maxResolution: <span class="hljs-number">2000</span>,
-      source: <span class="hljs-keyword">new</span> OlSourceTileJson({
-        url: <span class="hljs-string">&apos;https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure&apos;</span>,
-        crossOrigin: <span class="hljs-string">&apos;anonymous&apos;</span>
+      source: <span class="hljs-keyword">new</span> OlSourceOsm(),
+      name: <span class="hljs-string">&apos;OSM&apos;</span>
+    }),
+    <span class="hljs-keyword">new</span> OlLayerTile({
+      name: <span class="hljs-string">&apos;SRTM30-Contour&apos;</span>,
+      minResolution: <span class="hljs-number">0</span>,
+      maxResolution: <span class="hljs-number">10</span>,
+      source: <span class="hljs-keyword">new</span> OlSourceTileWMS({
+        url: <span class="hljs-string">&apos;https://ows.terrestris.de/osm/service&apos;</span>,
+        params: {
+          <span class="hljs-string">&apos;LAYERS&apos;</span>: <span class="hljs-string">&apos;SRTM30-Contour&apos;</span>
+        }
       })
     }),
     <span class="hljs-keyword">new</span> OlLayerTile({
-      name: <span class="hljs-string">&apos;World borders layer&apos;</span>,
-      minResolution: <span class="hljs-number">2000</span>,
-      maxResolution: <span class="hljs-number">20000</span>,
-      source: <span class="hljs-keyword">new</span> OlSourceTileJson({
-        url: <span class="hljs-string">&apos;https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure&apos;</span>,
-        crossOrigin: <span class="hljs-string">&apos;anonymous&apos;</span>
+      name: <span class="hljs-string">&apos;OSM-Overlay-WMS&apos;</span>,
+      minResolution: <span class="hljs-number">0</span>,
+      maxResolution: <span class="hljs-number">200</span>,
+      source: <span class="hljs-keyword">new</span> OlSourceTileWMS({
+        url: <span class="hljs-string">&apos;https://ows.terrestris.de/osm/service&apos;</span>,
+        params: {
+          <span class="hljs-string">&apos;LAYERS&apos;</span>: <span class="hljs-string">&apos;OSM-Overlay-WMS&apos;</span>
+        }
       })
     })
   ]
@@ -542,54 +546,50 @@
     center: center,
     zoom: <span class="hljs-number">16</span>,
   }),
-  layers: [layer, layerGroup]
+  layers: [layerGroup]
 });
 
-map.on(<span class="hljs-string">&apos;postcompose&apos;</span>, map.updateSize);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [visible, setVisible] = useState(<span class="hljs-literal">false</span>);
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  state = {visible: <span class="hljs-literal">false</span>};
-
-  toggleDrawer = () =&gt; {
-    <span class="hljs-keyword">this</span>.setState({visible: !<span class="hljs-keyword">this</span>.state.visible});
+  <span class="hljs-keyword">const</span> toggleDrawer = () =&gt; {
+    setVisible(!visible);
   }
 
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">MapProvider</span> <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">Map</span>/&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
-            <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
-            <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
-            <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-            <span class="hljs-attribute">visible</span>=<span class="hljs-value">{this.state.visible}</span>
-            <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
-          &gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedNominatimSearch</span>
-              <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
-            /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedMeasureButton</span>
-              <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
-              <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
-              <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
-              <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;pencil&quot;</span>
-            &gt;</span>
-              Strecke messen
-            <span class="hljs-tag">&lt;/<span class="hljs-title">MappifiedMeasureButton</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedLayerTree</span>
-              <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
-            /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-            <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
-            <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggleDrawer}</span>
-            <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">MapProvider</span> <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">Map</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
+          <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
+          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{toggleDrawer}</span>
+          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
+          <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
+          <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
+          <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{toggleDrawer}</span>
+          <span class="hljs-attribute">visible</span>=<span class="hljs-value">{visible}</span>
+          <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedNominatimSearch</span>
+            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
           /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">MapProvider</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    )</span>;
-  }
+          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedMeasureButton</span>
+            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
+            <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
+            <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
+            <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;pencil&quot;</span>
+          &gt;</span>
+            Measure distance
+          <span class="hljs-tag">&lt;/<span class="hljs-title">MappifiedMeasureButton</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedLayerTree</span>
+            <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">MapProvider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  )</span>;
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;

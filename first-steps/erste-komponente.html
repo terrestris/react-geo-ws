@@ -79,7 +79,7 @@
         data-chapter-title="Include a react-geo component"
         data-filepath="first-steps/erste-komponente.md"
         data-basepath=".."
-        data-revision="Mon Jan 06 2020 09:19:16 GMT+0000 (UTC)"
+        data-revision="Thu Jan 09 2020 08:47:44 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -514,9 +514,8 @@ see a simple alert message with a <em>Hello World!</em> message.</p>
 </code></pre>
 <p>Voil&#xE1;! You added a nice menu button to your app!</p>
 <p>Your final solution should look like the following snippet:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./logo.svg&apos;</span>;
-
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
@@ -525,24 +524,24 @@ see a simple alert message with a <em>Hello World!</em> message.</p>
   SimpleButton
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-header&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">{logo}</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-logo&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;logo&quot;</span> /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-title&quot;</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-intro&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-            <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
-            icon=&quot;bars&quot;
-          /&gt;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-header&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">{logo}</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App-logo&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;logo&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+          Edit <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>src/App.js<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> and save to reload.
         <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    )</span>;
-  }
+        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
+          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
+          icon=&quot;bars&quot;
+        /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  )</span>;
 }
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
 </code></pre>
 
                     
