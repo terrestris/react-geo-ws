@@ -15,20 +15,14 @@ import {
   NominatimSearch,
   MeasureButton,
   LayerTree,
-  MapProvider,
-  mappify,
-  onDropAware
+  MapContext,
+  useMap
 } from '@terrestris/react-geo';
 
 import './App.css';
 import 'ol/ol.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
-
-const MappifiedNominatimSearch = mappify(NominatimSearch);
-const MappifiedMeasureButton = mappify(MeasureButton);
-const MappifiedLayerTree = mappify(LayerTree);
-const Map = mappify(onDropAware(MapComponent));
 
 const layerGroup = new OlLayerGroup({
   name: 'Layergroup',
@@ -64,13 +58,65 @@ const layerGroup = new OlLayerGroup({
 
 const center = [ 788453.4890155146, 6573085.729161344 ];
 
-const map = new OlMap({
+const olMap = new OlMap({
   view: new OlView({
     center: center,
     zoom: 16,
   }),
   layers: [layerGroup]
 });
+  
+function Map() {
+  const map = useMap();
+
+  return (
+    <MapComponent
+      map={map}
+    />
+  );
+};
+
+function NominatimSearchWithMap() {
+  const map = useMap();
+
+  return (
+    <NominatimSearch
+      key="search"
+      map={map}
+      style={{
+        width: '100%'
+      }}
+    />
+  );
+};
+
+function MeasureButtonWithMap() {
+  const map1 = useMap();
+
+  return (
+    <MeasureButton
+      key="measureButton"
+      name="line"
+      map={map1}
+      measureType="line"
+      iconName="pencil"
+      pressedIconName="pencil"
+    >
+      Measure distance
+    </MeasureButton>
+  );
+};
+
+function LayerTreeWithMap(props) {
+  const map = useMap();
+
+  return (
+    <LayerTree
+      map={map}
+      {...props}
+    />
+  );
+};
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -78,15 +124,15 @@ function App() {
   const toggleDrawer = () => {
     setVisible(!visible);
   }
-
+ 
   return (
     <div className="App">
-      <MapProvider map={map}>
+      <MapContext.Provider value={olMap}>
         <Map />
         <SimpleButton
           style={{position: 'fixed', top: '30px', right: '30px'}}
           onClick={toggleDrawer}
-          icon="bars"
+          iconName="bars"
         />
         <Drawer
           title="react-geo-application"
@@ -95,22 +141,13 @@ function App() {
           visible={visible}
           mask={false}
         >
-          <MappifiedNominatimSearch
-            key="search"
-          />
-          <MappifiedMeasureButton
-            key="measureButton"
-            name="line"
-            measureType="line"
-            icon="pencil"
-          >
-            Measure distance
-          </MappifiedMeasureButton>
-          <MappifiedLayerTree
-            layerGroup={layerGroup}
+          <NominatimSearchWithMap />
+          <MeasureButtonWithMap />
+          <LayerTreeWithMap
+          	layerGroup={layerGroup}
           />
         </Drawer>
-      </MapProvider>
+      </MapContext.Provider>
     </div>
   );
 }
