@@ -24,7 +24,6 @@ For example:
   - VisibleComponent
   - MapProvider
 
-You find the full feature list (also containing future components) [here](https://github.com/terrestris/react-geo/wiki/Feature-List).
-
+You find the full* feature list [here](https://terrestris.github.io/react-geo/docs/latest).
 
 In the following, we'll have a closer look at some components in detail and show how they can be used in combination.

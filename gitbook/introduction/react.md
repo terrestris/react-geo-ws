@@ -57,4 +57,3 @@ class App extends React.Component {
 
 export default App;
 ```
-Syntactic sugar for React

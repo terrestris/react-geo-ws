@@ -1,12 +1,14 @@
-# `MapProvider` / `mappify`
+# useMap Hook
 
-## `MapProvider`
-* The `MapProvider` supplies the passed map to the React context (see also [here](https://reactjs.org/docs/context.html)) for the child elements.
+The `useMap` hook relies on the [React Context API](https://reactjs.org/docs/context.html) which allows us to pass data through the component tree without having to pass props down manually at every level.
 
-## `mappify`
+## MapContext
 
-* The `mappify` HOC grabs a map object from the context (see also [here](https://reactjs.org/docs/context.html)) and passes it as a prop to the wrapped component
-* Commonly used in combination with the `MapProvider`
+The `MapContext` supplies the passed map to the React context (see also [here](https://reactjs.org/docs/context.html)) for the child elements.
+
+## useMap
+
+The `useMap` hook grabs a map object from the context and makes it available in the given component. See the [docs](https://terrestris.github.io/react-geo/docs/latest/#/Components/Hooks/UseMap) for a working example.
 
 **Task:** Update your app by mappifying your components.
 
@@ -28,19 +30,14 @@ import {
   NominatimSearch,
   MeasureButton,
   LayerTree,
-  MapProvider,
-  mappify
+  MapContext,
+  useMap
 } from '@terrestris/react-geo';
 
 import './App.css';
 import 'ol/ol.css';
 import 'antd/dist/antd.css';
 import './react-geo.css';
-
-const MappifiedNominatimSearch = mappify(NominatimSearch);
-const MappifiedMeasureButton = mappify(MeasureButton);
-const MappifiedLayerTree = mappify(LayerTree);
-const Map = mappify(MapComponent);
 
 const layerGroup = new OlLayerGroup({
   name: 'Layergroup',
@@ -76,13 +73,65 @@ const layerGroup = new OlLayerGroup({
 
 const center = [ 788453.4890155146, 6573085.729161344 ];
 
-const map = new OlMap({
+const olMap = new OlMap({
   view: new OlView({
     center: center,
     zoom: 16,
   }),
   layers: [layerGroup]
 });
+  
+function Map() {
+  const map = useMap();
+
+  return (
+    <MapComponent
+      map={map}
+    />
+  );
+};
+
+function NominatimSearchWithMap() {
+  const map = useMap();
+
+  return (
+    <NominatimSearch
+      key="search"
+      map={map}
+      style={{
+        width: '100%'
+      }}
+    />
+  );
+};
+
+function MeasureButtonWithMap() {
+  const map = useMap();
+
+  return (
+    <MeasureButton
+      key="measureButton"
+      name="line"
+      map={map}
+      measureType="line"
+      iconName="pencil"
+      pressedIconName="pencil"
+    >
+      Measure distance
+    </MeasureButton>
+  );
+};
+
+function LayerTreeWithMap(props) {
+  const map = useMap();
+
+  return (
+    <LayerTree
+      map={map}
+      {...props}
+    />
+  );
+};
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -90,15 +139,15 @@ function App() {
   const toggleDrawer = () => {
     setVisible(!visible);
   }
-
+ 
   return (
     <div className="App">
-      <MapProvider map={map}>
+      <MapContext.Provider value={olMap}>
         <Map />
         <SimpleButton
           style={{position: 'fixed', top: '30px', right: '30px'}}
           onClick={toggleDrawer}
-          icon="bars"
+          iconName="bars"
         />
         <Drawer
           title="react-geo-application"
@@ -107,22 +156,13 @@ function App() {
           visible={visible}
           mask={false}
         >
-          <MappifiedNominatimSearch
-            key="search"
-          />
-          <MappifiedMeasureButton
-            key="measureButton"
-            name="line"
-            measureType="line"
-            icon="pencil"
-          >
-            Measure distance
-          </MappifiedMeasureButton>
-          <MappifiedLayerTree
-            layerGroup={layerGroup}
+          <NominatimSearchWithMap />
+          <MeasureButtonWithMap />
+          <LayerTreeWithMap
+          	layerGroup={layerGroup}
           />
         </Drawer>
-      </MapProvider>
+      </MapContext.Provider>
     </div>
   );
 }
