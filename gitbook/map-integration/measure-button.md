@@ -59,7 +59,7 @@ function App() {
       <SimpleButton
         style={{position: 'fixed', top: '30px', right: '30px'}}
         onClick={toggleDrawer}
-        icon="bars"
+        iconName="bars"
       />
       <Drawer
         title="react-geo-application"
@@ -71,13 +71,17 @@ function App() {
         <NominatimSearch
           key="search"
           map={map}
+          style={{
+            width: '100%'
+          }}
         />
         <MeasureButton
           key="measureButton"
           name="line"
           map={map}
           measureType="line"
-          icon="pencil"
+          iconName="pencil"
+          pressedIconName="pencil"
         >
           Measure distance
         </MeasureButton>

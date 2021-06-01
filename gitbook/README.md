@@ -26,7 +26,7 @@ knowledge base.
 * [Basics](./introduction/README.md) - Dive into the basics of EcmaScript 6, React and npm.
 * [First steps](first-steps/index.md) - Learn how to create your own React app and how to include react-geo in it.
 * [react-geo components](map-integration/index.md) - Extend your application with some react-geo components.
-* [Higher order components / Provider](higher-order-components/general.md) - Have a look at more advanced components.
+* [Hooks](hooks/general.md) - Have a look at more advanced components.
 
 ## Authors
 

@@ -52,6 +52,8 @@ once it has been clicked by implementing a `onClick` callback function:
 <SimpleButton
   onClick={() => {alert('Hello World!');}}
 >
+  Hello world!
+</SimpleButton>
 ```
 
 Save the changes and test the results by clicking on the button. You should now
@@ -62,7 +64,7 @@ We can also replace the text of the button with an icon. Simply remove the *Hell
 ```javascript
 <SimpleButton
   onClick={() => {alert('Hello World!');}}
-  icon="bars"
+  iconName="bars"
 />
 ```
 
@@ -91,7 +93,7 @@ function App() {
         </p>
         <SimpleButton
           onClick={() => {alert('Hello World!');}}
-          icon="bars"
+          iconName="bars"
         />
       </header>
     </div>
