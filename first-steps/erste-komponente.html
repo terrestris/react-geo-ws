@@ -79,7 +79,7 @@
         data-chapter-title="Include a react-geo component"
         data-filepath="first-steps/erste-komponente.md"
         data-basepath=".."
-        data-revision="Tue Mar 09 2021 07:28:59 GMT+0000 (UTC)"
+        data-revision="Tue Jun 01 2021 13:06:26 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -351,47 +351,32 @@
             
         </li>
     
-        <li class="chapter " data-level="4" data-path="higher-order-components/general.html">
+        <li class="chapter " data-level="4" data-path="hooks/general.html">
             
                 
-                    <a href="../higher-order-components/general.html">
+                    <a href="../hooks/general.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
                         
-                        Higher order components / Provider
+                        Hooks
                     </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1" data-path="higher-order-components/mappify.html">
+        <li class="chapter " data-level="4.1" data-path="hooks/usemap.html">
             
                 
-                    <a href="../higher-order-components/mappify.html">
+                    <a href="../hooks/usemap.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.1.</b>
                         
-                        MapProvider / `mappify`
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.2" data-path="higher-order-components/drop-target-map.html">
-            
-                
-                    <a href="../higher-order-components/drop-target-map.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                        DropTargetMap/ `onDropAware`
+                        useMap
                     </a>
             
             
@@ -503,13 +488,15 @@ once it has been clicked by implementing a <code>onClick</code> callback functio
 <pre><code class="lang-javascript">&lt;SimpleButton
   onClick={() =&gt; {alert(<span class="hljs-string">&apos;Hello World!&apos;</span>);}}
 &gt;
-</code></pre>
+  Hello world!
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">SimpleButton</span>&gt;</span>
+</span></code></pre>
 <p>Save the changes and test the results by clicking on the button. You should now
 see a simple alert message with a <em>Hello World!</em> message.</p>
 <p>We can also replace the text of the button with an icon. Simply remove the <em>Hello world</em> text and add the <code>icon</code> property with the value <code>&quot;bars&quot;</code> to the component.</p>
 <pre><code class="lang-javascript">&lt;SimpleButton
   onClick={() =&gt; {alert(<span class="hljs-string">&apos;Hello World!&apos;</span>);}}
-  icon=<span class="hljs-string">&quot;bars&quot;</span>
+  iconName=<span class="hljs-string">&quot;bars&quot;</span>
 /&gt;
 </code></pre>
 <p>Voil&#xE1;! You added a nice menu button to your app!</p>
@@ -534,7 +521,7 @@ see a simple alert message with a <em>Hello World!</em> message.</p>
         <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
           <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{()</span> =&gt;</span> {alert(&apos;Hello World!&apos;);}}
-          icon=&quot;bars&quot;
+          iconName=&quot;bars&quot;
         /&gt;
       <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>MapProvider / `mappify` | react-geo - mapping mit React</title>
+        <title>Hooks | react-geo - mapping mit React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.9">
@@ -63,10 +63,10 @@
         
     
     
-    <link rel="next" href="../higher-order-components/drop-target-map.html" />
+    <link rel="next" href="../hooks/usemap.html" />
     
     
-    <link rel="prev" href="../higher-order-components/general.html" />
+    <link rel="prev" href="../map-integration/layer-tree.html" />
     
 
         
@@ -75,11 +75,11 @@
         
         
     <div class="book"
-        data-level="4.1"
-        data-chapter-title="MapProvider / `mappify`"
-        data-filepath="higher-order-components/mappify.md"
+        data-level="4"
+        data-chapter-title="Hooks"
+        data-filepath="hooks/general.md"
         data-basepath=".."
-        data-revision="Tue Mar 09 2021 07:28:59 GMT+0000 (UTC)"
+        data-revision="Tue Jun 01 2021 13:06:26 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -351,47 +351,32 @@
             
         </li>
     
-        <li class="chapter " data-level="4" data-path="higher-order-components/general.html">
+        <li class="chapter active" data-level="4" data-path="hooks/general.html">
             
                 
-                    <a href="../higher-order-components/general.html">
+                    <a href="../hooks/general.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
                         
-                        Higher order components / Provider
+                        Hooks
                     </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="4.1" data-path="higher-order-components/mappify.html">
+        <li class="chapter " data-level="4.1" data-path="hooks/usemap.html">
             
                 
-                    <a href="../higher-order-components/mappify.html">
+                    <a href="../hooks/usemap.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.1.</b>
                         
-                        MapProvider / `mappify`
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.2" data-path="higher-order-components/drop-target-map.html">
-            
-                
-                    <a href="../higher-order-components/drop-target-map.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                        DropTargetMap/ `onDropAware`
+                        useMap
                     </a>
             
             
@@ -465,135 +450,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="mapprovider--mappify"><code>MapProvider</code> / <code>mappify</code></h1>
-<h2 id="mapprovider"><code>MapProvider</code></h2>
-<ul>
-<li>The <code>MapProvider</code> supplies the passed map to the React context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) for the child elements.</li>
-</ul>
-<h2 id="mappify"><code>mappify</code></h2>
-<ul>
-<li>The <code>mappify</code> HOC grabs a map object from the context (see also <a href="https://reactjs.org/docs/context.html" target="_blank">here</a>) and passes it as a prop to the wrapped component</li>
-<li>Commonly used in combination with the <code>MapProvider</code></li>
-</ul>
-<p><strong>Task:</strong> Update your app by mappifying your components.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-
-<span class="hljs-keyword">import</span> OlMap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Map&apos;</span>;
-<span class="hljs-keyword">import</span> OlView <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/View&apos;</span>;
-<span class="hljs-keyword">import</span> OlLayerTile <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Tile&apos;</span>;
-<span class="hljs-keyword">import</span> OlSourceOsm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/OSM&apos;</span>;
-<span class="hljs-keyword">import</span> OlSourceTileWMS <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source/TileWMS&apos;</span>;
-<span class="hljs-keyword">import</span> OlLayerGroup <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/Group&apos;</span>;
-
-<span class="hljs-keyword">import</span> { Drawer } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
-
-<span class="hljs-keyword">import</span> {
-  SimpleButton,
-  MapComponent,
-  NominatimSearch,
-  MeasureButton,
-  LayerTree,
-  MapProvider,
-  mappify
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
-
-<span class="hljs-keyword">const</span> MappifiedNominatimSearch = mappify(NominatimSearch);
-<span class="hljs-keyword">const</span> MappifiedMeasureButton = mappify(MeasureButton);
-<span class="hljs-keyword">const</span> MappifiedLayerTree = mappify(LayerTree);
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">Map</span> = mappify(MapComponent);
-
-<span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
-  name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
-  layers: [
-    <span class="hljs-keyword">new</span> OlLayerTile({
-      source: <span class="hljs-keyword">new</span> OlSourceOsm(),
-      name: <span class="hljs-string">&apos;OSM&apos;</span>
-    }),
-    <span class="hljs-keyword">new</span> OlLayerTile({
-      name: <span class="hljs-string">&apos;SRTM30-Contour&apos;</span>,
-      minResolution: <span class="hljs-number">0</span>,
-      maxResolution: <span class="hljs-number">10</span>,
-      source: <span class="hljs-keyword">new</span> OlSourceTileWMS({
-        url: <span class="hljs-string">&apos;https://ows.terrestris.de/osm/service&apos;</span>,
-        params: {
-          <span class="hljs-string">&apos;LAYERS&apos;</span>: <span class="hljs-string">&apos;SRTM30-Contour&apos;</span>
-        }
-      })
-    }),
-    <span class="hljs-keyword">new</span> OlLayerTile({
-      name: <span class="hljs-string">&apos;OSM-Overlay-WMS&apos;</span>,
-      minResolution: <span class="hljs-number">0</span>,
-      maxResolution: <span class="hljs-number">200</span>,
-      source: <span class="hljs-keyword">new</span> OlSourceTileWMS({
-        url: <span class="hljs-string">&apos;https://ows.terrestris.de/osm/service&apos;</span>,
-        params: {
-          <span class="hljs-string">&apos;LAYERS&apos;</span>: <span class="hljs-string">&apos;OSM-Overlay-WMS&apos;</span>
-        }
-      })
-    })
-  ]
-});
-
-<span class="hljs-keyword">const</span> center = [ <span class="hljs-number">788453.4890155146</span>, <span class="hljs-number">6573085.729161344</span> ];
-
-<span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> OlMap({
-  view: <span class="hljs-keyword">new</span> OlView({
-    center: center,
-    zoom: <span class="hljs-number">16</span>,
-  }),
-  layers: [layerGroup]
-});
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> [visible, setVisible] = useState(<span class="hljs-literal">false</span>);
-
-  <span class="hljs-keyword">const</span> toggleDrawer = () =&gt; {
-    setVisible(!visible);
-  }
-
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">MapProvider</span> <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">Map</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
-          <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
-          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{toggleDrawer}</span>
-          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
-        /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
-          <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
-          <span class="hljs-attribute">placement</span>=<span class="hljs-value">&quot;right&quot;</span>
-          <span class="hljs-attribute">onClose</span>=<span class="hljs-value">{toggleDrawer}</span>
-          <span class="hljs-attribute">visible</span>=<span class="hljs-value">{visible}</span>
-          <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedNominatimSearch</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
-          /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedMeasureButton</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
-            <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
-            <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
-            <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;pencil&quot;</span>
-          &gt;</span>
-            Measure distance
-          <span class="hljs-tag">&lt;/<span class="hljs-title">MappifiedMeasureButton</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedLayerTree</span>
-            <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">MapProvider</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  )</span>;
-}
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
-</code></pre>
+                        <h1 id="react-hooks">React hooks</h1>
+<p>React Hooks were introduced in React 16.8 and allow us to handle state management and side-effects in function components. React Hooks enable us to write React applications with only function components. Thus, there is no need to use class components anymore.</p>
+<p>Besides the integrated hooks you&apos;ve already dealed with (e.g. <code>useState</code>), it&apos;s possible building your own Hooks to extract component logic into reusable functions. react-geo comes with a simple <code>useMap</code> hook to get the current OpenLayers map instance into your component.</p>
 
                     
                     </section>
@@ -604,10 +463,10 @@
         </div>
 
         
-        <a href="../higher-order-components/general.html" class="navigation navigation-prev " aria-label="Previous page: Higher order components / Provider"><i class="fa fa-angle-left"></i></a>
+        <a href="../map-integration/layer-tree.html" class="navigation navigation-prev " aria-label="Previous page: LayerTree"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../higher-order-components/drop-target-map.html" class="navigation navigation-next " aria-label="Next page: DropTargetMap/ `onDropAware`"><i class="fa fa-angle-right"></i></a>
+        <a href="../hooks/usemap.html" class="navigation navigation-next " aria-label="Next page: useMap"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

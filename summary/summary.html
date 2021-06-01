@@ -66,7 +66,7 @@
     <link rel="next" href="../imprint/imprint.html" />
     
     
-    <link rel="prev" href="../higher-order-components/drop-target-map.html" />
+    <link rel="prev" href="../hooks/usemap.html" />
     
 
         
@@ -79,7 +79,7 @@
         data-chapter-title="Summary"
         data-filepath="summary/summary.md"
         data-basepath=".."
-        data-revision="Tue Mar 09 2021 07:28:59 GMT+0000 (UTC)"
+        data-revision="Tue Jun 01 2021 13:06:26 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -351,47 +351,32 @@
             
         </li>
     
-        <li class="chapter " data-level="4" data-path="higher-order-components/general.html">
+        <li class="chapter " data-level="4" data-path="hooks/general.html">
             
                 
-                    <a href="../higher-order-components/general.html">
+                    <a href="../hooks/general.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
                         
-                        Higher order components / Provider
+                        Hooks
                     </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1" data-path="higher-order-components/mappify.html">
+        <li class="chapter " data-level="4.1" data-path="hooks/usemap.html">
             
                 
-                    <a href="../higher-order-components/mappify.html">
+                    <a href="../hooks/usemap.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>4.1.</b>
                         
-                        MapProvider / `mappify`
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.2" data-path="higher-order-components/drop-target-map.html">
-            
-                
-                    <a href="../higher-order-components/drop-target-map.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                        DropTargetMap/ `onDropAware`
+                        useMap
                     </a>
             
             
@@ -488,20 +473,14 @@
   NominatimSearch,
   MeasureButton,
   LayerTree,
-  MapProvider,
-  mappify,
-  onDropAware
+  MapContext,
+  useMap
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@terrestris/react-geo&apos;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./App.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;antd/dist/antd.css&apos;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./react-geo.css&apos;</span>;
-
-<span class="hljs-keyword">const</span> MappifiedNominatimSearch = mappify(NominatimSearch);
-<span class="hljs-keyword">const</span> MappifiedMeasureButton = mappify(MeasureButton);
-<span class="hljs-keyword">const</span> MappifiedLayerTree = mappify(LayerTree);
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">Map</span> = mappify(onDropAware(MapComponent));
 
 <span class="hljs-keyword">const</span> layerGroup = <span class="hljs-keyword">new</span> OlLayerGroup({
   name: <span class="hljs-string">&apos;Layergroup&apos;</span>,
@@ -537,13 +516,65 @@
 
 <span class="hljs-keyword">const</span> center = [ <span class="hljs-number">788453.4890155146</span>, <span class="hljs-number">6573085.729161344</span> ];
 
-<span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> OlMap({
+<span class="hljs-keyword">const</span> olMap = <span class="hljs-keyword">new</span> OlMap({
   view: <span class="hljs-keyword">new</span> OlView({
     center: center,
     zoom: <span class="hljs-number">16</span>,
   }),
   layers: [layerGroup]
 });
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Map</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> map = useMap();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">MapComponent</span>
+      <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+    /&gt;</span>
+  )</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">NominatimSearchWithMap</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> map = useMap();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearch</span>
+      <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
+      <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+      <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span>
+        <span class="hljs-attribute">width:</span> &apos;<span class="hljs-attribute">100</span>%&apos;
+      }}
+    /&gt;</span>
+  )</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MeasureButtonWithMap</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> map = useMap();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">MeasureButton</span>
+      <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
+      <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
+      <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+      <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
+      <span class="hljs-attribute">iconName</span>=<span class="hljs-value">&quot;pencil&quot;</span>
+      <span class="hljs-attribute">pressedIconName</span>=<span class="hljs-value">&quot;pencil&quot;</span>
+    &gt;</span>
+      Measure distance
+    <span class="hljs-tag">&lt;/<span class="hljs-title">MeasureButton</span>&gt;</span>
+  )</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LayerTreeWithMap</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">const</span> map = useMap();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">LayerTree</span>
+      <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>
+      {<span class="hljs-attribute">...props</span>}
+    /&gt;</span>
+  )</span>;
+};
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">const</span> [visible, setVisible] = useState(<span class="hljs-literal">false</span>);
@@ -554,12 +585,12 @@
 
   <span class="hljs-keyword">return</span> (
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;App&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">MapProvider</span> <span class="hljs-attribute">map</span>=<span class="hljs-value">{map}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">MapContext.Provider</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">{olMap}</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">Map</span> /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">SimpleButton</span>
           <span class="hljs-attribute">style</span>=<span class="hljs-value">{{position:</span> &apos;<span class="hljs-attribute">fixed</span>&apos;, <span class="hljs-attribute">top:</span> &apos;<span class="hljs-attribute">30px</span>&apos;, <span class="hljs-attribute">right:</span> &apos;<span class="hljs-attribute">30px</span>&apos;}}
           <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{toggleDrawer}</span>
-          <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;bars&quot;</span>
+          <span class="hljs-attribute">iconName</span>=<span class="hljs-value">&quot;bars&quot;</span>
         /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">Drawer</span>
           <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;react-geo-application&quot;</span>
@@ -568,22 +599,13 @@
           <span class="hljs-attribute">visible</span>=<span class="hljs-value">{visible}</span>
           <span class="hljs-attribute">mask</span>=<span class="hljs-value">{false}</span>
         &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedNominatimSearch</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;search&quot;</span>
-          /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedMeasureButton</span>
-            <span class="hljs-attribute">key</span>=<span class="hljs-value">&quot;measureButton&quot;</span>
-            <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;line&quot;</span>
-            <span class="hljs-attribute">measureType</span>=<span class="hljs-value">&quot;line&quot;</span>
-            <span class="hljs-attribute">icon</span>=<span class="hljs-value">&quot;pencil&quot;</span>
-          &gt;</span>
-            Measure distance
-          <span class="hljs-tag">&lt;/<span class="hljs-title">MappifiedMeasureButton</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">MappifiedLayerTree</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">NominatimSearchWithMap</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">MeasureButtonWithMap</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">LayerTreeWithMap</span>
             <span class="hljs-attribute">layerGroup</span>=<span class="hljs-value">{layerGroup}</span>
           /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">Drawer</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">MapProvider</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">MapContext.Provider</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   )</span>;
 }
@@ -600,7 +622,7 @@
         </div>
 
         
-        <a href="../higher-order-components/drop-target-map.html" class="navigation navigation-prev " aria-label="Previous page: DropTargetMap/ `onDropAware`"><i class="fa fa-angle-left"></i></a>
+        <a href="../hooks/usemap.html" class="navigation navigation-prev " aria-label="Previous page: useMap"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../imprint/imprint.html" class="navigation navigation-next " aria-label="Next page: Imprint"><i class="fa fa-angle-right"></i></a>
