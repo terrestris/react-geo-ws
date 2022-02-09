@@ -63,3 +63,8 @@ npm i antd ol
 
 Now we're ready to make use of all `react-geo` components and utilities inside
 our *{{ book.reactAppName }}* application.
+
+> **info**
+> Due to a breaking change in webpack, we also have to install following dependencies
+> explicitly:
+> npm i buffer

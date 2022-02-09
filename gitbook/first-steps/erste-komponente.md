@@ -18,7 +18,7 @@ import {
 The style definitions of `react-geo` and `antd` need to be imported as well:
 
 ```javascript
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './react-geo.css';
 ```
 
@@ -76,7 +76,7 @@ Your final solution should look like the following snippet:
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './react-geo.css';
 
 import {

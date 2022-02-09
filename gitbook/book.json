@@ -7,7 +7,7 @@
     "workshopName": "react-geo - mapping mit React",
     "workshopRawSourceBaseUrl": "https://rawgit.com/terrestris/react-geo-ws/master/src/",
     "workshopDownloadUrl": "https://terrestris.github.io/react-geo-ws/react-geo-ws.zip",
-    "reactGeoVersion": "15.0.2",
+    "reactGeoVersion": "16.2.0",
     "reactAppName": "my-app",
     "authors": [{
       "name": "André Henn",
