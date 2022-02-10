@@ -26,7 +26,7 @@ import {
 
 import './App.css';
 import 'ol/ol.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './react-geo.css';
 
 const layer = new OlLayerTile({

@@ -34,7 +34,7 @@ import {
 
 import './App.css';
 import 'ol/ol.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './react-geo.css';
 
 const layerGroup = new OlLayerGroup({
@@ -112,8 +112,8 @@ function MeasureButtonWithMap() {
       name="line"
       map={map}
       measureType="line"
-      iconName="pencil"
-      pressedIconName="pencil"
+      iconName="pen"
+      pressedIconName="pen"
     >
       Measure distance
     </MeasureButton>

@@ -21,7 +21,7 @@ import OlSourceOsm from 'ol/source/OSM';
 
 import './App.css';
 import 'ol/ol.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './react-geo.css';
 
 import {
