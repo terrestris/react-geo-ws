@@ -79,7 +79,7 @@
         data-chapter-title="Include react-geo dependency"
         data-filepath="first-steps/basispakete.md"
         data-basepath=".."
-        data-revision="Tue Jun 01 2021 13:06:26 GMT+0000 (UTC)"
+        data-revision="Thu Feb 10 2022 13:22:21 GMT+0100 (CET)"
         data-innerlanguage="">
     
 
@@ -464,8 +464,8 @@ library to the <code>node_modules</code> directory.</p>
 <h2 id="add-ant-design-und-openlayers-dependencies">Add Ant Design und OpenLayers dependencies</h2>
 <p>You may have noticed that the step from above has produced some warnings, which
 include <code>react-geo</code>:</p>
-<pre><xmp>npm WARN @terrestris/react-geo@15.0.2 requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
-npm WARN @terrestris/react-geo@15.0.2 requires a peer of ol@~5.0 but none is installed. You must install peer dependencies yourself.
+<pre><xmp>npm WARN @terrestris/react-geo@16.2.0 requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @terrestris/react-geo@16.2.0 requires a peer of ol@~5.0 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
 <p><code>npm</code> has three different types of dependencies:</p>
@@ -495,6 +495,12 @@ ourselves with:</p>
 <pre><code>npm i antd ol
 </code></pre><p>Now we&apos;re ready to make use of all <code>react-geo</code> components and utilities inside
 our <em>my-app</em> application.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
+<p>
+Due to a breaking change in webpack, we also have to install following dependencies
+explicitly:
+npm i buffer</p>
+</blockquote>
 
                     
                     </section>
