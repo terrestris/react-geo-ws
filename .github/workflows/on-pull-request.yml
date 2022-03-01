@@ -28,7 +28,7 @@ jobs:
           ${{ runner.OS }}-
 
     - name: Install Calibre 🧰
-      run: sudo apt install calibre
+      run: sudo apt-get update && sudo apt install calibre
 
     - name: Install dependencies ⏬
       run: npm i
