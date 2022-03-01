@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: gitbook
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,9 +32,6 @@ jobs:
 
     - name: Install Calibre 🧰
       run: sudo apt install calibre
-
-    - name: Enter working directory 📁
-      run: cd gitbook/
 
     - name: Install dependencies ⏬
       run: npm i
