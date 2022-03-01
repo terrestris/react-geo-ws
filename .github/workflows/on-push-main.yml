@@ -1,0 +1,59 @@
+name: Update gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources 🔰
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js 16 🧮
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+
+    - name: Cache Node.js modules 💾
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+
+    - name: Install Calibre 🧰
+      run: sudo apt install calibre
+
+    - name: Enter working directory 📁
+      run: cd gitbook/
+
+    - name: Install dependencies ⏬
+      run: npm i
+
+    - name: Build artifacts 🏗️
+      run: npm run archive
+
+    - name: Get react-geo-ws version 🔖
+      run: |
+        echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
+
+    - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
+      uses: JamesIves/github-pages-deploy-action@4.2.5
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: gitbook/build
+        TARGET_FOLDER: v${{ env.VERSION }}
+
+    - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
+      uses: JamesIves/github-pages-deploy-action@4.2.5
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: gitbook/build
+        TARGET_FOLDER: latest
