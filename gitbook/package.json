@@ -7,12 +7,11 @@
   "scripts": {
     "start": "mkdir -p ./_book && npm run doc:serve",
     "clean": "rm -rf _book build",
-    "doc:help": "gitbook help",
-    "doc:serve": "gitbook serve ./",
-    "doc:build": "gitbook build ./ build/react-geo-ws",
-    "doc:epub": "gitbook epub ./ build/react-geo-ws.epub",
-    "doc:pdf": "gitbook pdf ./ build/react-geo-ws.pdf",
-    "postinstall": "gitbook install ./",
+    "doc:help": "honkit help",
+    "doc:serve": "honkit serve ./",
+    "doc:build": "honkit build ./ build/react-geo-ws",
+    "doc:epub": "honkit epub ./ build/react-geo-ws.epub",
+    "doc:pdf": "honkit pdf ./ build/react-geo-ws.pdf",
     "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/react-geo-ws",
     "archive": "npm run build && cd build && zip -r react-geo-ws.zip react-geo-ws react-geo-ws*.pdf react-geo-ws*.epub"
   },
@@ -33,7 +32,12 @@
   },
   "homepage": "https://github.com/terrestris/react-geo-ws#readme",
   "dependencies": {
-    "gitbook-cli": "2.3.2",
-    "svgexport": "0.3.2"
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-image-captions": "^3.1.0",
+    "gitbook-plugin-richquotes": "^0.0.9",
+    "gitbook-plugin-sectionx": "^3.1.0",
+    "honkit": "^3.7.1",
+    "svgexport": "0.4.2"
   }
 }

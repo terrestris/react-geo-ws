@@ -1,5 +1,5 @@
 {
-  "gitbook": "^2.3.2",
+  "honkit": ">= 3.0.0",
   "title": "react-geo - mapping mit React",
   "description": "react-geo - mapping with react workshop materials",
   "language": "en",
