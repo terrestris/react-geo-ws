@@ -1,12 +1,11 @@
 {
   "honkit": ">= 3.0.0",
-  "title": "react-geo - mapping mit React",
+  "title": "react-geo - mapping with React",
   "description": "react-geo - mapping with react workshop materials",
   "language": "en",
   "variables": {
-    "workshopName": "react-geo - mapping mit React",
-    "workshopRawSourceBaseUrl": "https://rawgit.com/terrestris/react-geo-ws/main/src/",
-    "workshopDownloadUrl": "https://terrestris.github.io/react-geo-ws/react-geo-ws.zip",
+    "workshopName": "react-geo - mapping with React",
+    "workshopDownloadUrl": "https://terrestris.github.io/react-geo-ws/latest/react-geo-ws.zip",
     "reactGeoVersion": "16.2.0",
     "reactAppName": "my-app",
     "authors": [{
