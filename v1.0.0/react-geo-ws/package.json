@@ -1,0 +1,43 @@
+{
+  "name": "react-geo-ws",
+  "version": "1.0.0",
+  "description": "The materials for the react-geo workshop",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "mkdir -p ./_book && npm run doc:serve",
+    "clean": "rm -rf _book build",
+    "doc:help": "honkit help",
+    "doc:serve": "honkit serve ./",
+    "doc:build": "honkit build ./ build/react-geo-ws",
+    "doc:epub": "honkit epub ./ build/react-geo-ws.epub",
+    "doc:pdf": "honkit pdf ./ build/react-geo-ws.pdf",
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/react-geo-ws",
+    "archive": "npm run build && cd build && zip -r react-geo-ws.zip react-geo-ws react-geo-ws*.pdf react-geo-ws*.epub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrestris/react-geo-ws.git"
+  },
+  "keywords": [
+    "workshop",
+    "react",
+    "react-geo",
+    "openlayers"
+  ],
+  "author": "terrestris GmbH & Co. KG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terrestris/react-geo-ws/issues"
+  },
+  "homepage": "https://github.com/terrestris/react-geo-ws#readme",
+  "dependencies": {
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-image-captions": "^3.1.0",
+    "gitbook-plugin-richquotes": "^0.0.9",
+    "gitbook-plugin-sectionx": "^3.1.0",
+    "honkit": "^3.7.1",
+    "svgexport": "0.4.2"
+  }
+}
