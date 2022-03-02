@@ -24,6 +24,7 @@ include `react-geo`:
 
 <pre><xmp>npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of antd@~3.0 but none is installed. You must install peer dependencies yourself.
 npm WARN @terrestris/react-geo@{{ book.reactGeoVersion }} requires a peer of ol@~5.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @terrestris/react-geo@{{ book.reactGeoVersion } requires a peer of ol@^6.9 but none is installed. You must install peer dependencies yourself.
 </xmp></pre>
 
 `npm` has three different types of dependencies:

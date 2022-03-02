@@ -66,5 +66,20 @@ You find the installed packages in the `node_modules` subfolder.
 
 ```
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-nvm i v8
+nvm i v14
+```
+Restart the Terminal
+
+```
+nvm use v14
+```
+
+# Adjusting the number of files beeing monitored by the system
+* By default the system monitores a specific number of files
+* If this number is beeing reached, the executed command will fail
+* To make sure this doesn't happen, we will exceed the number manually
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
 ```
