@@ -51,7 +51,7 @@ jobs:
         folder: gitbook/build
         target-folder: v${{ env.VERSION }}
 
-    - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
+    - name: Deploy (to docs/latest) 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
