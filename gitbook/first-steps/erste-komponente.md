@@ -23,7 +23,7 @@ import './react-geo.css';
 ```
 
 If the `react-geo.css` file is not yet located in the `src` directory please
-paste it from [here](https://github.com/terrestris/react-geo-ws/blob/master/gitbook/materials/react-geo.css).
+paste it from [here](https://github.com/terrestris/react-geo-ws/blob/main/gitbook/materials/react-geo.css).
 
 > **info**
 > Please note that we are importing css files with the ES6 `import` here. This needs

@@ -5,7 +5,7 @@
   "language": "en",
   "variables": {
     "workshopName": "react-geo - mapping mit React",
-    "workshopRawSourceBaseUrl": "https://rawgit.com/terrestris/react-geo-ws/master/src/",
+    "workshopRawSourceBaseUrl": "https://rawgit.com/terrestris/react-geo-ws/main/src/",
     "workshopDownloadUrl": "https://terrestris.github.io/react-geo-ws/react-geo-ws.zip",
     "reactGeoVersion": "16.2.0",
     "reactAppName": "my-app",
