@@ -46,15 +46,15 @@ jobs:
     - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
       uses: JamesIves/github-pages-deploy-action@4.2.5
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: gitbook/build
-        TARGET_FOLDER: v${{ env.VERSION }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: gitbook/build
+        target-folder: v${{ env.VERSION }}
 
     - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
       uses: JamesIves/github-pages-deploy-action@4.2.5
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: gitbook/build
-        TARGET_FOLDER: latest
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: gitbook/build
+        target-folder: latest
