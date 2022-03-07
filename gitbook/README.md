@@ -12,7 +12,7 @@ Welcome to the workshop **{{ book.workshopName }}**. This workshop is designed t
 
 The following instructions and exercises assume that you have some requirements fulfilled on your local machine. Please check if you have the consequent packages installed:
   * A suitable text editor, e.g. the lightweight [Atom](https://atom.io/) editor.
-  * [NodeJS](https://nodejs.org/en/) in version 10 or higher.
+  * [NodeJS](https://nodejs.org/en/) in version 14 or higher.
 
 All set? Then, lets' go!
 

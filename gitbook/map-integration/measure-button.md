@@ -1,6 +1,6 @@
 # MeasureButton
 
-* Button (toggle) to en/disable certain `ol.interaction`s and `ol.layer`s to measure a distance, a polygonal area or angles
+* Button (toggle) to en/disable certain `ol.interaction`'s and `ol.layer`'s to measure a distance, a polygonal area or angles
 
 * [Documentation](https://terrestris.github.io/react-geo/docs/latest/index.html#!/MeasureButton)
 

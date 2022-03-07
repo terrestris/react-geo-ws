@@ -6,7 +6,7 @@
   "variables": {
     "workshopName": "react-geo - mapping with React",
     "workshopDownloadUrl": "https://terrestris.github.io/react-geo-ws/latest/react-geo-ws.zip",
-    "reactGeoVersion": "16.2.0",
+    "reactGeoVersion": "16.2.2",
     "reactAppName": "my-app",
     "authors": [{
       "name": "André Henn",
