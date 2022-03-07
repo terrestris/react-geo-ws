@@ -75,7 +75,7 @@ nvm use v14
 ```
 
 # Adjusting the number of files beeing monitored by the system
-* By default the system monitores a specific number of files
+* By default the system monitors a specific number of files
 * If this number is beeing reached, the executed command will fail
 * To make sure this doesn't happen, we will exceed the number manually
 
